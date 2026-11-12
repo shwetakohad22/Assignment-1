@@ -13,6 +13,15 @@
 // The harness is read-only towards src/, tests/ and eslint.config.js. It only writes
 // into a NEW timestamped folder under evidence/harness-results/ and never overwrites a file.
 // Only built-in Node.js modules are used.
+//
+// Documented exceptions (approved by the project owner, "Option A"):
+//   E-1  tests/helpers/server.js may import `spawn` from node:child_process and call it
+//        exactly once as  spawn(process.execPath, [ENTRY], { env: {...}, stdio: [...] })
+//        to start the app (src/index.js) as a real process. No shell option, no other
+//        child_process API. If that call or its import changes shape in any way, E-1 stops
+//        applying and the child_process use is reported as a normal FAIL finding.
+//        An allowed use is always printed as "ALLOWED by documented exception E-1", never
+//        hidden as a silent PASS. See EXCEPTION_E1 / checkExceptionE1 below.
 
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -189,6 +198,61 @@ const SECURITY_RULES = [
   },
 ];
 
+// Documented exception E-1 (see the header). Every condition must hold, otherwise the
+// child_process use in that file is a normal finding. Whitespace inside the call is
+// collapsed before comparing; any other difference makes E-1 not apply.
+const EXCEPTION_E1 = {
+  id: 'E-1',
+  file: 'tests/helpers/server.js',
+  importLine: "import { spawn } from 'node:child_process';",
+  entryLine: "const ENTRY = path.resolve(import.meta.dirname, '..', '..', 'src', 'index.js');",
+  call:
+    "spawn(process.execPath, [ENTRY], { env: { ...process.env, PORT: '0', HOST: '127.0.0.1', " +
+    "DATA_FILE: dataFile, ...env }, stdio: ['ignore', 'pipe', 'pipe'], });",
+};
+
+// Returns { applies: true, line, importLine } or { applies: false, why }.
+function checkExceptionE1(relPath, text, childProcessLines) {
+  const e = EXCEPTION_E1;
+  const fail = (why) => ({ applies: false, why });
+  if (relPath !== e.file) return fail(`only ${e.file} is covered`);
+  const src = text.replace(/\r\n/g, '\n');
+  const lines = src.split('\n');
+
+  if (childProcessLines.length !== 1) {
+    return fail(`child_process is mentioned on ${childProcessLines.length} lines (expected exactly 1, the import)`);
+  }
+  const importIdx = childProcessLines[0];
+  if (lines[importIdx].trim() !== e.importLine) {
+    return fail(`the child_process import is not exactly: ${e.importLine}`);
+  }
+  if (/\bshell\b/.test(src)) return fail('the file mentions "shell"');
+  const otherApi = src.match(/(?<![.\w$])(exec|execSync|execFile|execFileSync|fork|spawnSync)(?![\w$])/);
+  if (otherApi) return fail(`the file uses ${otherApi[1]}`);
+  if (/(?<![.\w$])(require|createRequire)\s*\(|\bimport\s*\(|process\.binding/.test(src)) {
+    return fail('the file loads modules dynamically (require / import() / process.binding)');
+  }
+  const spawnRefs = src.match(/(?<![.\w$])spawn(?![\w$])/g) || [];
+  if (spawnRefs.length !== 2) {
+    return fail(`spawn is referenced ${spawnRefs.length} times (expected 2: the import and one call)`);
+  }
+  const callAt = src.search(/(?<![.\w$])spawn\s*\(/);
+  if (callAt < 0) return fail('no spawn(...) call found');
+  const callEnd = src.indexOf('});', callAt);
+  if (callEnd < 0) return fail('the spawn(...) call does not end with "});"');
+  const call = src.slice(callAt, callEnd + 3).replace(/\s+/g, ' ');
+  if (call !== e.call) return fail(`the spawn call changed shape: ${call.slice(0, 200)}`);
+  const entryDefs = src.match(/\bENTRY\s*=/g) || [];
+  if (entryDefs.length !== 1 || !lines.some((l) => l.trim() === e.entryLine)) {
+    return fail(`ENTRY is not defined exactly once as: ${e.entryLine}`);
+  }
+  return {
+    applies: true,
+    line: src.slice(0, callAt).split('\n').length,
+    importLine: importIdx + 1,
+  };
+}
+
 function maskSecret(value) {
   return value.length <= 2 ? '***' : `${value.slice(0, 2)}***`;
 }
@@ -203,6 +267,7 @@ function findDotEnvFiles() {
 
 function checkSecurity() {
   const findings = [];
+  const allowed = [];
   const scanned = [];
   const missingDirs = [];
 
@@ -216,11 +281,19 @@ function checkSecurity() {
       const text = readTextFile(file);
       if (text === null) continue;
       scanned.push(rel(file));
+      const childProcessLines = [];
+      const childProcessFindings = [];
       text.split(/\r?\n/).forEach((line, index) => {
         const where = `${rel(file)}:${index + 1}`;
         for (const rule of SECURITY_RULES) {
           if (rule.re.test(line)) {
-            findings.push(`${where}  [${rule.id}] ${rule.what}: ${line.trim().slice(0, 160)}`);
+            const finding = `${where}  [${rule.id}] ${rule.what}: ${line.trim().slice(0, 160)}`;
+            if (rule.id === 'child-process') {
+              childProcessLines.push(index);
+              childProcessFindings.push(finding);
+            } else {
+              findings.push(finding);
+            }
           }
         }
         const secret = line.match(SECRET_ASSIGNMENT);
@@ -230,6 +303,21 @@ function checkSecurity() {
           );
         }
       });
+      if (childProcessLines.length > 0) {
+        const e1 = checkExceptionE1(rel(file), text, childProcessLines);
+        if (e1.applies) {
+          allowed.push(
+            `${rel(file)}:${e1.line}  [child-process] ALLOWED by documented exception ${EXCEPTION_E1.id}: ` +
+              `spawn(process.execPath, [ENTRY], {...}) starts src/index.js with no shell option ` +
+              `(import at ${rel(file)}:${e1.importLine})`,
+          );
+        } else {
+          findings.push(...childProcessFindings);
+          if (rel(file) === EXCEPTION_E1.file) {
+            findings.push(`${rel(file)}  [child-process] documented exception ${EXCEPTION_E1.id} does NOT apply: ${e1.why}`);
+          }
+        }
+      }
     }
   }
 
@@ -251,13 +339,22 @@ function checkSecurity() {
     '',
     `Findings (${findings.length}):`,
     ...(findings.length === 0 ? ['  none'] : findings.map((f) => `  ${f}`)),
+    '',
+    `Allowed by documented exception (${allowed.length}):`,
+    ...(allowed.length === 0 ? ['  none'] : allowed.map((a) => `  ${a}`)),
   ].join('\n');
 
   return {
     name: 'Security',
     pass: reasons.length === 0,
     reasons,
-    details: [`files scanned: ${scanned.length}`, `findings: ${findings.length}`, ...findings.slice(0, 20)],
+    details: [
+      `files scanned: ${scanned.length}`,
+      `findings: ${findings.length}`,
+      ...findings.slice(0, 20),
+      `allowed by documented exception: ${allowed.length}`,
+      ...allowed,
+    ],
     log,
   };
 }

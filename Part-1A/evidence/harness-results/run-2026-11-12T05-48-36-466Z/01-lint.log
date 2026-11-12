@@ -1,0 +1,11 @@
+$ npx eslint .
+cwd: D:\Personal\Assignment-1\Part-1A
+exit code: 0
+signal: null
+spawn error: null
+duration: 1155 ms
+
+----- stdout -----
+
+----- stderr -----
+

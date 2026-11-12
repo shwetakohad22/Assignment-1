@@ -1,0 +1,27 @@
+Part-1A harness sensor
+project:  D:\Personal\Assignment-1\Part-1A
+started:  2026-11-12T05:52:47.627Z
+node:     v24.15.0
+evidence: evidence/harness-results/run-2026-11-12T05-52-47-626Z
+
+[1/4] Lint......... PASS
+      errors: 0
+      warnings: 0
+      exit code: 0
+
+[2/4] Security..... PASS
+      files scanned: 21
+      findings: 0
+      allowed by documented exception: 1
+      tests/helpers/server.js:42  [child-process] ALLOWED by documented exception E-1: spawn(process.execPath, [ENTRY], {...}) starts src/index.js with no shell option (import at tests/helpers/server.js:5)
+
+[3/4] Tests........ PASS
+      tests: 109, pass: 109, fail: 0, cancelled: 0, skipped: 0, todo: 0
+      skip/todo/only usages in tests/: 0
+
+[4/4] Traceability. PASS
+      covered: 63/63
+
+RESULT: PASS (4/4 checks passed)
+exit code: 0
+duration: 2459 ms

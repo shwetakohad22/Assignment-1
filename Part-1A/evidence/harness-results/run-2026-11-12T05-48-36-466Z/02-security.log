@@ -1,0 +1,31 @@
+Scanned folders: src/, tests/
+Files scanned (21):
+  src/app.js
+  src/config.js
+  src/errors.js
+  src/http.js
+  src/index.js
+  src/store.js
+  src/tasks.js
+  tests/concurrency.test.js
+  tests/config.unit.test.js
+  tests/create.test.js
+  tests/delete.test.js
+  tests/filter-sort.test.js
+  tests/general.test.js
+  tests/helpers/http.js
+  tests/helpers/server.js
+  tests/persistence.test.js
+  tests/read.test.js
+  tests/status.test.js
+  tests/store.unit.test.js
+  tests/tasks.unit.test.js
+  tests/update.test.js
+
+.env files found: none
+
+Findings (0):
+  none
+
+Allowed by documented exception (1):
+  tests/helpers/server.js:42  [child-process] ALLOWED by documented exception E-1: spawn(process.execPath, [ENTRY], {...}) starts src/index.js with no shell option (import at tests/helpers/server.js:5)

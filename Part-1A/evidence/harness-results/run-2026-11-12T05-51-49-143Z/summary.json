@@ -1,0 +1,47 @@
+{
+  "startedAt": "2026-11-12T05:51:49.144Z",
+  "finishedAt": "2026-11-12T05:51:51.581Z",
+  "node": "v24.15.0",
+  "result": "PASS",
+  "exitCode": 0,
+  "checks": [
+    {
+      "name": "Lint",
+      "result": "PASS",
+      "reasons": [],
+      "details": [
+        "errors: 0",
+        "warnings: 0",
+        "exit code: 0"
+      ]
+    },
+    {
+      "name": "Security",
+      "result": "PASS",
+      "reasons": [],
+      "details": [
+        "files scanned: 21",
+        "findings: 0",
+        "allowed by documented exception: 1",
+        "tests/helpers/server.js:42  [child-process] ALLOWED by documented exception E-1: spawn(process.execPath, [ENTRY], {...}) starts src/index.js with no shell option (import at tests/helpers/server.js:5)"
+      ]
+    },
+    {
+      "name": "Tests",
+      "result": "PASS",
+      "reasons": [],
+      "details": [
+        "tests: 109, pass: 109, fail: 0, cancelled: 0, skipped: 0, todo: 0",
+        "skip/todo/only usages in tests/: 0"
+      ]
+    },
+    {
+      "name": "Traceability",
+      "result": "PASS",
+      "reasons": [],
+      "details": [
+        "covered: 63/63"
+      ]
+    }
+  ]
+}

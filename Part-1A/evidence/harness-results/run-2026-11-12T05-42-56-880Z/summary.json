@@ -1,0 +1,48 @@
+{
+  "startedAt": "2026-11-12T05:42:56.883Z",
+  "finishedAt": "2026-11-12T05:42:59.823Z",
+  "node": "v24.15.0",
+  "result": "FAIL",
+  "exitCode": 1,
+  "checks": [
+    {
+      "name": "Lint",
+      "result": "PASS",
+      "reasons": [],
+      "details": [
+        "errors: 0",
+        "warnings: 0",
+        "exit code: 0"
+      ]
+    },
+    {
+      "name": "Security",
+      "result": "FAIL",
+      "reasons": [
+        "1 security finding(s)"
+      ],
+      "details": [
+        "files scanned: 21",
+        "findings: 1",
+        "tests/helpers/server.js:5  [child-process] use of child_process: import { spawn } from 'node:child_process';"
+      ]
+    },
+    {
+      "name": "Tests",
+      "result": "PASS",
+      "reasons": [],
+      "details": [
+        "tests: 109, pass: 109, fail: 0, cancelled: 0, skipped: 0, todo: 0",
+        "skip/todo/only usages in tests/: 0"
+      ]
+    },
+    {
+      "name": "Traceability",
+      "result": "PASS",
+      "reasons": [],
+      "details": [
+        "covered: 63/63"
+      ]
+    }
+  ]
+}
