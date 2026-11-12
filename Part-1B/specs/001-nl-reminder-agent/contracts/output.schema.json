@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reminder-output-1.0",
+  "title": "Reminder agent output, schema 1.0 (spec FR-08/FR-09). Documentation only: enforced by src/contract.js and .harness/evaluators, no JSON-Schema library is used.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "intent", "status", "task", "datetime", "snooze_minutes", "clarification_question", "reason"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "intent": { "enum": ["create", "reschedule", "snooze", "clarify"] },
+    "status": { "enum": ["ok", "needs_clarification", "refused", "error"] },
+    "task": { "type": ["string", "null"], "minLength": 1, "maxLength": 200 },
+    "datetime": {
+      "type": ["string", "null"],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+05:30$"
+    },
+    "snooze_minutes": { "type": ["integer", "null"], "minimum": 1, "maximum": 1440 },
+    "clarification_question": { "type": ["string", "null"], "minLength": 1, "maxLength": 300 },
+    "reason": {
+      "enum": [
+        null,
+        "missing_task", "missing_time", "ambiguous_time", "ambiguous_request", "past_time", "out_of_range", "malformed_input",
+        "guardrail_injection", "guardrail_secret_request", "guardrail_harmful",
+        "invalid_model_output", "model_service_failure", "configuration_error"
+      ]
+    }
+  },
+  "x-rows-FR-09": [
+    { "intent": "create", "status": "ok", "task": "req", "datetime": "req", "snooze_minutes": "null", "clarification_question": "null", "reason": "null" },
+    { "intent": "reschedule", "status": "ok", "task": "req", "datetime": "req", "snooze_minutes": "null", "clarification_question": "null", "reason": "null" },
+    { "intent": "snooze", "status": "ok", "task": "opt", "datetime": "null", "snooze_minutes": "req", "clarification_question": "null", "reason": "null" },
+    { "intent": "clarify", "status": "needs_clarification", "task": "opt for missing_time|ambiguous_time|past_time, else null", "datetime": "null", "snooze_minutes": "null", "clarification_question": "req", "reason": "clarification reason" },
+    { "intent": "clarify", "status": "refused", "task": "null", "datetime": "null", "snooze_minutes": "null", "clarification_question": "req (fixed REFUSAL_MESSAGE)", "reason": "refusal reason" },
+    { "intent": "clarify", "status": "error", "task": "null", "datetime": "null", "snooze_minutes": "null", "clarification_question": "req (fixed ERROR_MESSAGE)", "reason": "error reason" }
+  ],
+  "x-extra-invariants": ["INV-06 real calendar date", "INV-09/10 not before reference time", "INV-12 no key / AIza pattern", "INV-13 no canary"]
+}
