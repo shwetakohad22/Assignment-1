@@ -1,0 +1,59 @@
+$ npx eslint .
+cwd: D:\Personal\Assignment-1\Part-1A
+exit code: 1
+signal: null
+spawn error: null
+duration: 1548 ms
+
+----- stdout -----
+
+D:\Personal\Assignment-1\Part-1A\evidence\initial-generation\src\app.js
+  102:23  error  'URL' is not defined      no-undef
+  119:7   error  'console' is not defined  no-undef
+
+D:\Personal\Assignment-1\Part-1A\evidence\initial-generation\src\config.js
+  42:34  error  'process' is not defined  no-undef
+
+D:\Personal\Assignment-1\Part-1A\evidence\initial-generation\src\http.js
+  27:15  error  'Buffer' is not defined  no-undef
+  45:23  error  'Buffer' is not defined  no-undef
+
+D:\Personal\Assignment-1\Part-1A\evidence\initial-generation\src\index.js
+   8:3  error  'process' is not defined  no-undef
+   9:3  error  'process' is not defined  no-undef
+  21:5  error  'process' is not defined  no-undef
+  23:3  error  'process' is not defined  no-undef
+  24:3  error  'process' is not defined  no-undef
+  36:5  error  'process' is not defined  no-undef
+
+D:\Personal\Assignment-1\Part-1A\evidence\initial-generation\src\store.js
+  11:35  error  'setTimeout' is not defined  no-undef
+  61:26  error  'process' is not defined     no-undef
+
+D:\Personal\Assignment-1\Part-1A\evidence\initial-generation\tests\config.unit.test.js
+  36:18  error  'process' is not defined  no-undef
+
+D:\Personal\Assignment-1\Part-1A\evidence\initial-generation\tests\helpers\http.js
+  10:21  error  'fetch' is not defined  no-undef
+
+D:\Personal\Assignment-1\Part-1A\evidence\initial-generation\tests\helpers\server.js
+  42:16  error  'process' is not defined       no-undef
+  43:15  error  'process' is not defined       no-undef
+  54:19  error  'setTimeout' is not defined    no-undef
+  65:9   error  'clearTimeout' is not defined  no-undef
+  79:7   error  'clearTimeout' is not defined  no-undef
+  89:19  error  'setTimeout' is not defined    no-undef
+  97:7   error  'clearTimeout' is not defined  no-undef
+
+D:\Personal\Assignment-1\Part-1A\evidence\initial-generation\tests\store.unit.test.js
+  69:50  error  'setTimeout' is not defined  no-undef
+
+D:\Personal\Assignment-1\Part-1A\evidence\initial-generation\tests\tasks.unit.test.js
+  153:43  error  'URL' is not defined  no-undef
+  158:39  error  'URL' is not defined  no-undef
+
+✖ 25 problems (25 errors, 0 warnings)
+
+
+----- stderr -----
+

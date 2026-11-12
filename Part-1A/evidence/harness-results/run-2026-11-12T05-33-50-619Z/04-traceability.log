@@ -1,0 +1,187 @@
+Test names read from the node --test run: 211
+Covered: 63/63
+Missing: none
+IDs outside AC-01..AC-63: none
+
+Coverage matrix (ID -> tests whose name contains it):
+  AC-01  2 test(s)
+        - AC-01: create with only a title returns 201 with defaults
+        - AC-01: create with only a title returns 201 with defaults
+  AC-02  2 test(s)
+        - AC-02: create with priority and tags normalizes tags
+        - AC-02: create with priority and tags normalizes tags
+  AC-03  2 test(s)
+        - AC-03: title is trimmed and two creates get different ids
+        - AC-03: title is trimmed and two creates get different ids
+  AC-04  2 test(s)
+        - AC-04: empty title returns 400 VALIDATION_ERROR
+        - AC-04: empty title returns 400 VALIDATION_ERROR
+  AC-05  2 test(s)
+        - AC-05: whitespace-only title returns 400 VALIDATION_ERROR
+        - AC-05: whitespace-only title returns 400 VALIDATION_ERROR
+  AC-06  2 test(s)
+        - AC-06: missing title returns 400 VALIDATION_ERROR
+        - AC-06: missing title returns 400 VALIDATION_ERROR
+  AC-07  2 test(s)
+        - AC-07: non-string title returns 400 VALIDATION_ERROR
+        - AC-07: non-string title returns 400 VALIDATION_ERROR
+  AC-08  2 test(s)
+        - AC-08: 201-character title returns 400, 200 characters returns 201
+        - AC-08: 201-character title returns 400, 200 characters returns 201
+  AC-09  2 test(s)
+        - AC-09: invalid priority returns 400 VALIDATION_ERROR
+        - AC-09: invalid priority returns 400 VALIDATION_ERROR
+  AC-10  2 test(s)
+        - AC-10: tags that are not an array return 400 VALIDATION_ERROR
+        - AC-10: tags that are not an array return 400 VALIDATION_ERROR
+  AC-11  2 test(s)
+        - AC-11: invalid tag items or more than 20 tags return 400 VALIDATION_ERROR
+        - AC-11: invalid tag items or more than 20 tags return 400 VALIDATION_ERROR
+  AC-12  2 test(s)
+        - AC-12: malformed JSON returns 400 INVALID_JSON
+        - AC-12: malformed JSON returns 400 INVALID_JSON
+  AC-13  2 test(s)
+        - AC-13: array or null body returns 400 VALIDATION_ERROR
+        - AC-13: array or null body returns 400 VALIDATION_ERROR
+  AC-14  2 test(s)
+        - AC-14: id, createdAt or unknown keys return 400 VALIDATION_ERROR
+        - AC-14: id, createdAt or unknown keys return 400 VALIDATION_ERROR
+  AC-15  2 test(s)
+        - AC-15: status other than todo on create returns 400, status todo returns 201
+        - AC-15: status other than todo on create returns 400, status todo returns 201
+  AC-16  2 test(s)
+        - AC-16: no rejected create changes the task list
+        - AC-16: no rejected create changes the task list
+  AC-17  2 test(s)
+        - AC-17: GET /tasks on an empty store returns 200 []
+        - AC-17: GET /tasks on an empty store returns 200 []
+  AC-18  2 test(s)
+        - AC-18: list keeps creation order and GET by id returns the created task
+        - AC-18: list keeps creation order and GET by id returns the created task
+  AC-19  2 test(s)
+        - AC-19: GET /tasks/{unknown id} returns 404 TASK_NOT_FOUND
+        - AC-19: GET /tasks/{unknown id} returns 404 TASK_NOT_FOUND
+  AC-20  1 test(s)
+        - AC-20: PATCH title returns 200 with the new title and keeps id and createdAt
+  AC-21  1 test(s)
+        - AC-21: PATCH priority and tags changes only those fields
+  AC-22  1 test(s)
+        - AC-22: PATCH with an empty title returns 400 and keeps the old title
+  AC-23  1 test(s)
+        - AC-23: PATCH with an invalid priority returns 400
+  AC-24  1 test(s)
+        - AC-24: PATCH with an empty object returns 400
+  AC-25  1 test(s)
+        - AC-25: PATCH with id, createdAt or an unknown key returns 400 and changes nothing
+  AC-26  1 test(s)
+        - AC-26: PATCH an unknown id returns 404 TASK_NOT_FOUND
+  AC-27  1 test(s)
+        - AC-27: PATCH with an unknown status value returns 400, not 409
+  AC-28  2 test(s)
+        - AC-28: todo → in-progress returns 200
+        - AC-28: todo → in-progress returns 200
+  AC-29  2 test(s)
+        - AC-29: in-progress → done returns 200
+        - AC-29: in-progress → done returns 200
+  AC-30  2 test(s)
+        - AC-30: in-progress → todo returns 200
+        - AC-30: in-progress → todo returns 200
+  AC-31  2 test(s)
+        - AC-31: todo → done returns 409 and keeps status
+        - AC-31: todo → done returns 409 and keeps status
+  AC-32  2 test(s)
+        - AC-32: done → in-progress returns 409 and keeps status
+        - AC-32: done → in-progress returns 409 and keeps status
+  AC-33  2 test(s)
+        - AC-33: done → todo returns 409 and keeps status
+        - AC-33: done → todo returns 409 and keeps status
+  AC-34  2 test(s)
+        - AC-34: changing to the same status returns 409 for every status
+        - AC-34: changing to the same status returns 409 for every status
+  AC-35  2 test(s)
+        - AC-35: a valid title change with a disallowed status change is rejected as a whole
+        - AC-35: a valid title change with a disallowed status change is rejected as a whole
+  AC-36  2 test(s)
+        - AC-36: DELETE returns 204 with no body and the task is gone
+        - AC-36: DELETE returns 204 with no body and the task is gone
+  AC-37  2 test(s)
+        - AC-37: DELETE an unknown or already deleted id returns 404 TASK_NOT_FOUND
+        - AC-37: DELETE an unknown or already deleted id returns 404 TASK_NOT_FOUND
+  AC-38  2 test(s)
+        - AC-38: ?tag=home returns only tasks with that tag in creation order
+        - AC-38: ?tag=home returns only tasks with that tag in creation order
+  AC-39  2 test(s)
+        - AC-39: a tag no task has returns 200 []
+        - AC-39: a tag no task has returns 200 []
+  AC-40  2 test(s)
+        - AC-40: the tag filter is case-insensitive
+        - AC-40: the tag filter is case-insensitive
+  AC-41  2 test(s)
+        - AC-41: an empty tag returns 400 VALIDATION_ERROR
+        - AC-41: an empty tag returns 400 VALIDATION_ERROR
+  AC-42  2 test(s)
+        - AC-42: ?sort=priority orders high, medium, low and keeps ties in creation order
+        - AC-42: ?sort=priority orders high, medium, low and keeps ties in creation order
+  AC-43  2 test(s)
+        - AC-43: an unknown sort value returns 400 VALIDATION_ERROR
+        - AC-43: an unknown sort value returns 400 VALIDATION_ERROR
+  AC-44  2 test(s)
+        - AC-44: tag filter and priority sort combine
+        - AC-44: tag filter and priority sort combine
+  AC-45  2 test(s)
+        - AC-45: tasks and their changes are identical after a restart
+        - AC-45: tasks and their changes are identical after a restart
+  AC-46  2 test(s)
+        - AC-46: a deleted task is still gone after a restart
+        - AC-46: a deleted task is still gone after a restart
+  AC-47  2 test(s)
+        - AC-47: a missing data file starts with an empty list and is not created
+        - AC-47: a missing data file starts with an empty list and is not created
+  AC-48  2 test(s)
+        - AC-48: rejected requests leave the data file byte-for-byte unchanged
+        - AC-48: rejected requests leave the data file byte-for-byte unchanged
+  AC-49  2 test(s)
+        - AC-49: a corrupt data file stops startup and is left unchanged
+        - AC-49: a corrupt data file stops startup and is left unchanged
+  AC-50  2 test(s)
+        - AC-50: an unknown route or method returns 404 ROUTE_NOT_FOUND
+        - AC-50: an unknown route or method returns 404 ROUTE_NOT_FOUND
+  AC-51  2 test(s)
+        - AC-51: every response is application/json and errors have exactly error and message
+        - AC-51: every response is application/json and errors have exactly error and message
+  AC-52  2 test(s)
+        - AC-52: a body over 102400 bytes returns 400 VALIDATION_ERROR and changes nothing
+        - AC-52: a body over 102400 bytes returns 400 VALIDATION_ERROR and changes nothing
+  AC-53  2 test(s)
+        - AC-53: a missing task is reported before field validation but after JSON parsing
+        - AC-53: a missing task is reported before field validation but after JSON parsing
+  AC-54  2 test(s)
+        - AC-54: 20 simultaneous creates are all saved and survive a restart
+        - AC-54: 20 simultaneous creates are all saved and survive a restart
+  AC-55  2 test(s)
+        - AC-55: query parameters on routes other than GET /tasks return 400 and change nothing
+        - AC-55: query parameters on routes other than GET /tasks return 400 and change nothing
+  AC-56  2 test(s)
+        - AC-56: an id with invalid percent-encoding returns 400 VALIDATION_ERROR, never 500
+        - AC-56: an id with invalid percent-encoding returns 400 VALIDATION_ERROR, never 500
+  AC-57  2 test(s)
+        - AC-57: a failed save returns 500 INTERNAL_ERROR, keeps memory unchanged, and the server recovers
+        - AC-57: a failed save returns 500 INTERNAL_ERROR, keeps memory unchanged, and the server recovers
+  AC-58  2 test(s)
+        - AC-58: unknown or repeated query parameters return 400 VALIDATION_ERROR
+        - AC-58: unknown or repeated query parameters return 400 VALIDATION_ERROR
+  AC-59  2 test(s)
+        - AC-59: an empty body on POST or PATCH returns 400 INVALID_JSON and changes nothing
+        - AC-59: an empty body on POST or PATCH returns 400 INVALID_JSON and changes nothing
+  AC-60  2 test(s)
+        - AC-60: HEAD, OPTIONS and a trailing slash are not routes
+        - AC-60: HEAD, OPTIONS and a trailing slash are not routes
+  AC-61  2 test(s)
+        - AC-61: a tag filter over 50 characters returns 400, 50 characters returns 200
+        - AC-61: a tag filter over 50 characters returns 400, 50 characters returns 200
+  AC-62  2 test(s)
+        - AC-62: an invalid PORT stops startup and writes nothing
+        - AC-62: an invalid PORT stops startup and writes nothing
+  AC-63  2 test(s)
+        - AC-63: an id over 100 characters returns 400, 100 characters is looked up normally
+        - AC-63: an id over 100 characters returns 400, 100 characters is looked up normally

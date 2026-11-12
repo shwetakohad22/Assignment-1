@@ -1,0 +1,54 @@
+{
+  "startedAt": "2026-11-12T05:33:50.620Z",
+  "finishedAt": "2026-11-12T05:33:54.139Z",
+  "node": "v24.15.0",
+  "result": "FAIL",
+  "exitCode": 1,
+  "checks": [
+    {
+      "name": "Lint",
+      "result": "FAIL",
+      "reasons": [
+        "eslint exit code 1 (expected 0)",
+        "25 lint error(s) (expected 0)"
+      ],
+      "details": [
+        "errors: 25",
+        "warnings: 0",
+        "exit code: 1"
+      ]
+    },
+    {
+      "name": "Security",
+      "result": "FAIL",
+      "reasons": [
+        "1 security finding(s)"
+      ],
+      "details": [
+        "files scanned: 21",
+        "findings: 1",
+        "tests/helpers/server.js:5  [child-process] use of child_process: import { spawn } from 'node:child_process';"
+      ]
+    },
+    {
+      "name": "Tests",
+      "result": "FAIL",
+      "reasons": [
+        "node --test exit code 1 (expected 0)",
+        "1 failed (expected 0)"
+      ],
+      "details": [
+        "tests: 211, pass: 210, fail: 1, cancelled: 0, skipped: 0, todo: 0",
+        "skip/todo/only usages in tests/: 0"
+      ]
+    },
+    {
+      "name": "Traceability",
+      "result": "PASS",
+      "reasons": [],
+      "details": [
+        "covered: 63/63"
+      ]
+    }
+  ]
+}

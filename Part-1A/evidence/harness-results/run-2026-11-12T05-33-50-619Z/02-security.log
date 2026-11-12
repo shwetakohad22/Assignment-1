@@ -1,0 +1,28 @@
+Scanned folders: src/, tests/
+Files scanned (21):
+  src/app.js
+  src/config.js
+  src/errors.js
+  src/http.js
+  src/index.js
+  src/store.js
+  src/tasks.js
+  tests/concurrency.test.js
+  tests/config.unit.test.js
+  tests/create.test.js
+  tests/delete.test.js
+  tests/filter-sort.test.js
+  tests/general.test.js
+  tests/helpers/http.js
+  tests/helpers/server.js
+  tests/persistence.test.js
+  tests/read.test.js
+  tests/status.test.js
+  tests/store.unit.test.js
+  tests/tasks.unit.test.js
+  tests/update.test.js
+
+.env files found: none
+
+Findings (1):
+  tests/helpers/server.js:5  [child-process] use of child_process: import { spawn } from 'node:child_process';

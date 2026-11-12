@@ -1,0 +1,31 @@
+Part-1A harness sensor
+project:  D:\Personal\Assignment-1\Part-1A
+started:  2026-11-12T05:33:50.620Z
+node:     v24.15.0
+evidence: evidence/harness-results/run-2026-11-12T05-33-50-619Z
+
+[1/4] Lint......... FAIL
+      reason: eslint exit code 1 (expected 0)
+      reason: 25 lint error(s) (expected 0)
+      errors: 25
+      warnings: 0
+      exit code: 1
+
+[2/4] Security..... FAIL
+      reason: 1 security finding(s)
+      files scanned: 21
+      findings: 1
+      tests/helpers/server.js:5  [child-process] use of child_process: import { spawn } from 'node:child_process';
+
+[3/4] Tests........ FAIL
+      reason: node --test exit code 1 (expected 0)
+      reason: 1 failed (expected 0)
+      tests: 211, pass: 210, fail: 1, cancelled: 0, skipped: 0, todo: 0
+      skip/todo/only usages in tests/: 0
+
+[4/4] Traceability. PASS
+      covered: 63/63
+
+RESULT: FAIL (1/4 checks passed)
+exit code: 1
+duration: 3519 ms

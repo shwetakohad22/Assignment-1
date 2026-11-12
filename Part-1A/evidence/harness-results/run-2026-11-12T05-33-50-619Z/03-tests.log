@@ -1,0 +1,1314 @@
+Static scan of tests/ for .skip / .todo / .only:
+  none
+
+$ node --test --test-reporter=tap
+cwd: D:\Personal\Assignment-1\Part-1A
+exit code: 1
+signal: null
+spawn error: null
+duration: 1942 ms
+
+----- stdout -----
+TAP version 13
+# Subtest: AC-54: 20 simultaneous creates are all saved and survive a restart
+ok 1 - AC-54: 20 simultaneous creates are all saved and survive a restart
+  ---
+  duration_ms: 893.1813
+  type: 'test'
+  ...
+# Subtest: loadConfig uses defaults when nothing is set
+ok 2 - loadConfig uses defaults when nothing is set
+  ---
+  duration_ms: 2.3032
+  type: 'test'
+  ...
+# Subtest: loadConfig accepts PORT 0 and 65535
+ok 3 - loadConfig accepts PORT 0 and 65535
+  ---
+  duration_ms: 1.7319
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects PORT="abc"
+ok 4 - loadConfig rejects PORT="abc"
+  ---
+  duration_ms: 0.8175
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects PORT="-1"
+ok 5 - loadConfig rejects PORT="-1"
+  ---
+  duration_ms: 0.2322
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects PORT="65536"
+ok 6 - loadConfig rejects PORT="65536"
+  ---
+  duration_ms: 0.22
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects PORT="3.5"
+ok 7 - loadConfig rejects PORT="3.5"
+  ---
+  duration_ms: 0.1675
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects PORT=""
+ok 8 - loadConfig rejects PORT=""
+  ---
+  duration_ms: 0.1551
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects a blank HOST
+ok 9 - loadConfig rejects a blank HOST
+  ---
+  duration_ms: 0.2484
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects an empty DATA_FILE
+ok 10 - loadConfig rejects an empty DATA_FILE
+  ---
+  duration_ms: 0.3089
+  type: 'test'
+  ...
+# Subtest: loadConfig resolves a relative DATA_FILE against the current directory
+ok 11 - loadConfig resolves a relative DATA_FILE against the current directory
+  ---
+  duration_ms: 0.4093
+  type: 'test'
+  ...
+# Subtest: AC-01: create with only a title returns 201 with defaults
+ok 12 - AC-01: create with only a title returns 201 with defaults
+  ---
+  duration_ms: 143.4789
+  type: 'test'
+  ...
+# Subtest: AC-02: create with priority and tags normalizes tags
+ok 13 - AC-02: create with priority and tags normalizes tags
+  ---
+  duration_ms: 49.1525
+  type: 'test'
+  ...
+# Subtest: AC-03: title is trimmed and two creates get different ids
+ok 14 - AC-03: title is trimmed and two creates get different ids
+  ---
+  duration_ms: 39.6257
+  type: 'test'
+  ...
+# Subtest: AC-04: empty title returns 400 VALIDATION_ERROR
+ok 15 - AC-04: empty title returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 16.1036
+  type: 'test'
+  ...
+# Subtest: AC-05: whitespace-only title returns 400 VALIDATION_ERROR
+ok 16 - AC-05: whitespace-only title returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 13.7287
+  type: 'test'
+  ...
+# Subtest: AC-06: missing title returns 400 VALIDATION_ERROR
+ok 17 - AC-06: missing title returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 11.8137
+  type: 'test'
+  ...
+# Subtest: AC-07: non-string title returns 400 VALIDATION_ERROR
+ok 18 - AC-07: non-string title returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 14.2701
+  type: 'test'
+  ...
+# Subtest: AC-08: 201-character title returns 400, 200 characters returns 201
+ok 19 - AC-08: 201-character title returns 400, 200 characters returns 201
+  ---
+  duration_ms: 108.1883
+  type: 'test'
+  ...
+# Subtest: AC-09: invalid priority returns 400 VALIDATION_ERROR
+ok 20 - AC-09: invalid priority returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 19.759
+  type: 'test'
+  ...
+# Subtest: AC-10: tags that are not an array return 400 VALIDATION_ERROR
+ok 21 - AC-10: tags that are not an array return 400 VALIDATION_ERROR
+  ---
+  duration_ms: 12.7844
+  type: 'test'
+  ...
+# Subtest: AC-11: invalid tag items or more than 20 tags return 400 VALIDATION_ERROR
+ok 22 - AC-11: invalid tag items or more than 20 tags return 400 VALIDATION_ERROR
+  ---
+  duration_ms: 38.6745
+  type: 'test'
+  ...
+# Subtest: AC-12: malformed JSON returns 400 INVALID_JSON
+ok 23 - AC-12: malformed JSON returns 400 INVALID_JSON
+  ---
+  duration_ms: 20.9946
+  type: 'test'
+  ...
+# Subtest: AC-13: array or null body returns 400 VALIDATION_ERROR
+ok 24 - AC-13: array or null body returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 20.142
+  type: 'test'
+  ...
+# Subtest: AC-14: id, createdAt or unknown keys return 400 VALIDATION_ERROR
+ok 25 - AC-14: id, createdAt or unknown keys return 400 VALIDATION_ERROR
+  ---
+  duration_ms: 47.2842
+  type: 'test'
+  ...
+# Subtest: AC-15: status other than todo on create returns 400, status todo returns 201
+ok 26 - AC-15: status other than todo on create returns 400, status todo returns 201
+  ---
+  duration_ms: 35.5039
+  type: 'test'
+  ...
+# Subtest: AC-16: no rejected create changes the task list
+ok 27 - AC-16: no rejected create changes the task list
+  ---
+  duration_ms: 160.0196
+  type: 'test'
+  ...
+# Subtest: AC-36: DELETE returns 204 with no body and the task is gone
+ok 28 - AC-36: DELETE returns 204 with no body and the task is gone
+  ---
+  duration_ms: 177.1518
+  type: 'test'
+  ...
+# Subtest: AC-37: DELETE an unknown or already deleted id returns 404 TASK_NOT_FOUND
+ok 29 - AC-37: DELETE an unknown or already deleted id returns 404 TASK_NOT_FOUND
+  ---
+  duration_ms: 76.3278
+  type: 'test'
+  ...
+# Subtest: AC-38: ?tag=home returns only tasks with that tag in creation order
+ok 30 - AC-38: ?tag=home returns only tasks with that tag in creation order
+  ---
+  duration_ms: 240.3671
+  type: 'test'
+  ...
+# Subtest: AC-39: a tag no task has returns 200 []
+ok 31 - AC-39: a tag no task has returns 200 []
+  ---
+  duration_ms: 89.7471
+  type: 'test'
+  ...
+# Subtest: AC-40: the tag filter is case-insensitive
+ok 32 - AC-40: the tag filter is case-insensitive
+  ---
+  duration_ms: 65.0552
+  type: 'test'
+  ...
+# Subtest: AC-41: an empty tag returns 400 VALIDATION_ERROR
+ok 33 - AC-41: an empty tag returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 24.2816
+  type: 'test'
+  ...
+# Subtest: AC-42: ?sort=priority orders high, medium, low and keeps ties in creation order
+ok 34 - AC-42: ?sort=priority orders high, medium, low and keeps ties in creation order
+  ---
+  duration_ms: 172.2522
+  type: 'test'
+  ...
+# Subtest: AC-43: an unknown sort value returns 400 VALIDATION_ERROR
+ok 35 - AC-43: an unknown sort value returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 10.9198
+  type: 'test'
+  ...
+# Subtest: AC-44: tag filter and priority sort combine
+ok 36 - AC-44: tag filter and priority sort combine
+  ---
+  duration_ms: 114.9828
+  type: 'test'
+  ...
+# Subtest: AC-58: unknown or repeated query parameters return 400 VALIDATION_ERROR
+ok 37 - AC-58: unknown or repeated query parameters return 400 VALIDATION_ERROR
+  ---
+  duration_ms: 19.5392
+  type: 'test'
+  ...
+# Subtest: AC-61: a tag filter over 50 characters returns 400, 50 characters returns 200
+ok 38 - AC-61: a tag filter over 50 characters returns 400, 50 characters returns 200
+  ---
+  duration_ms: 15.688
+  type: 'test'
+  ...
+# Subtest: AC-50: an unknown route or method returns 404 ROUTE_NOT_FOUND
+ok 39 - AC-50: an unknown route or method returns 404 ROUTE_NOT_FOUND
+  ---
+  duration_ms: 143.9055
+  type: 'test'
+  ...
+# Subtest: AC-51: every response is application/json and errors have exactly error and message
+ok 40 - AC-51: every response is application/json and errors have exactly error and message
+  ---
+  duration_ms: 100.5365
+  type: 'test'
+  ...
+# Subtest: AC-52: a body over 102400 bytes returns 400 VALIDATION_ERROR and changes nothing
+ok 41 - AC-52: a body over 102400 bytes returns 400 VALIDATION_ERROR and changes nothing
+  ---
+  duration_ms: 49.0742
+  type: 'test'
+  ...
+# Subtest: AC-53: a missing task is reported before field validation but after JSON parsing
+ok 42 - AC-53: a missing task is reported before field validation but after JSON parsing
+  ---
+  duration_ms: 24.3481
+  type: 'test'
+  ...
+# Subtest: AC-55: query parameters on routes other than GET /tasks return 400 and change nothing
+ok 43 - AC-55: query parameters on routes other than GET /tasks return 400 and change nothing
+  ---
+  duration_ms: 60.4015
+  type: 'test'
+  ...
+# Subtest: AC-56: an id with invalid percent-encoding returns 400 VALIDATION_ERROR, never 500
+ok 44 - AC-56: an id with invalid percent-encoding returns 400 VALIDATION_ERROR, never 500
+  ---
+  duration_ms: 18.1496
+  type: 'test'
+  ...
+# Error: EEXIST: file already exists, mkdir 'C:\\Users\\leado\\AppData\\Local\\Temp\\todo-api-xhe2k3\\blocked'
+#     at async mkdir (node:internal/fs/promises:859:10)
+#     at async saveTasks (file:///D:/Personal/Assignment-1/Part-1A/evidence/initial-generation/src/store.js:63:5)
+#     at async file:///D:/Personal/Assignment-1/Part-1A/evidence/initial-generation/src/store.js:120:9 {
+#   errno: -4075,
+#   code: 'EEXIST',
+#   syscall: 'mkdir',
+#   path: 'C:\\\\Users\\\\leado\\\\AppData\\\\Local\\\\Temp\\\\todo-api-xhe2k3\\\\blocked'
+# }
+# Subtest: AC-57: a failed save returns 500 INTERNAL_ERROR, keeps memory unchanged, and the server recovers
+ok 45 - AC-57: a failed save returns 500 INTERNAL_ERROR, keeps memory unchanged, and the server recovers
+  ---
+  duration_ms: 87.6448
+  type: 'test'
+  ...
+# Subtest: AC-59: an empty body on POST or PATCH returns 400 INVALID_JSON and changes nothing
+ok 46 - AC-59: an empty body on POST or PATCH returns 400 INVALID_JSON and changes nothing
+  ---
+  duration_ms: 37.9338
+  type: 'test'
+  ...
+# Subtest: AC-60: HEAD, OPTIONS and a trailing slash are not routes
+ok 47 - AC-60: HEAD, OPTIONS and a trailing slash are not routes
+  ---
+  duration_ms: 20.0497
+  type: 'test'
+  ...
+# Subtest: AC-63: an id over 100 characters returns 400, 100 characters is looked up normally
+ok 48 - AC-63: an id over 100 characters returns 400, 100 characters is looked up normally
+  ---
+  duration_ms: 28.7626
+  type: 'test'
+  ...
+# Subtest: AC-45: tasks and their changes are identical after a restart
+ok 49 - AC-45: tasks and their changes are identical after a restart
+  ---
+  duration_ms: 755.5696
+  type: 'test'
+  ...
+# Subtest: AC-46: a deleted task is still gone after a restart
+ok 50 - AC-46: a deleted task is still gone after a restart
+  ---
+  duration_ms: 387.0307
+  type: 'test'
+  ...
+# Subtest: AC-47: a missing data file starts with an empty list and is not created
+ok 51 - AC-47: a missing data file starts with an empty list and is not created
+  ---
+  duration_ms: 109.1909
+  type: 'test'
+  ...
+# Subtest: AC-48: rejected requests leave the data file byte-for-byte unchanged
+ok 52 - AC-48: rejected requests leave the data file byte-for-byte unchanged
+  ---
+  duration_ms: 45.8363
+  type: 'test'
+  ...
+# Subtest: AC-49: a corrupt data file stops startup and is left unchanged
+ok 53 - AC-49: a corrupt data file stops startup and is left unchanged
+  ---
+  duration_ms: 76.4435
+  type: 'test'
+  ...
+# Subtest: AC-62: an invalid PORT stops startup and writes nothing
+ok 54 - AC-62: an invalid PORT stops startup and writes nothing
+  ---
+  duration_ms: 74.9759
+  type: 'test'
+  ...
+# Subtest: AC-17: GET /tasks on an empty store returns 200 []
+ok 55 - AC-17: GET /tasks on an empty store returns 200 []
+  ---
+  duration_ms: 124.9032
+  type: 'test'
+  ...
+# Subtest: AC-18: list keeps creation order and GET by id returns the created task
+ok 56 - AC-18: list keeps creation order and GET by id returns the created task
+  ---
+  duration_ms: 159.1888
+  type: 'test'
+  ...
+# Subtest: AC-19: GET /tasks/{unknown id} returns 404 TASK_NOT_FOUND
+ok 57 - AC-19: GET /tasks/{unknown id} returns 404 TASK_NOT_FOUND
+  ---
+  duration_ms: 20.7415
+  type: 'test'
+  ...
+# Subtest: AC-28: todo → in-progress returns 200
+ok 58 - AC-28: todo → in-progress returns 200
+  ---
+  duration_ms: 223.8434
+  type: 'test'
+  ...
+# Subtest: AC-29: in-progress → done returns 200
+ok 59 - AC-29: in-progress → done returns 200
+  ---
+  duration_ms: 113.4471
+  type: 'test'
+  ...
+# Subtest: AC-30: in-progress → todo returns 200
+ok 60 - AC-30: in-progress → todo returns 200
+  ---
+  duration_ms: 97.0347
+  type: 'test'
+  ...
+# Subtest: AC-31: todo → done returns 409 and keeps status
+ok 61 - AC-31: todo → done returns 409 and keeps status
+  ---
+  duration_ms: 31.5304
+  type: 'test'
+  ...
+# Subtest: AC-32: done → in-progress returns 409 and keeps status
+ok 62 - AC-32: done → in-progress returns 409 and keeps status
+  ---
+  duration_ms: 111.7781
+  type: 'test'
+  ...
+# Subtest: AC-33: done → todo returns 409 and keeps status
+ok 63 - AC-33: done → todo returns 409 and keeps status
+  ---
+  duration_ms: 87.7501
+  type: 'test'
+  ...
+# Subtest: AC-34: changing to the same status returns 409 for every status
+ok 64 - AC-34: changing to the same status returns 409 for every status
+  ---
+  duration_ms: 159.5393
+  type: 'test'
+  ...
+# Subtest: AC-35: a valid title change with a disallowed status change is rejected as a whole
+ok 65 - AC-35: a valid title change with a disallowed status change is rejected as a whole
+  ---
+  duration_ms: 25.3464
+  type: 'test'
+  ...
+# Subtest: loadTasks returns [] for a missing file and does not create it
+ok 66 - loadTasks returns [] for a missing file and does not create it
+  ---
+  duration_ms: 23.701
+  type: 'test'
+  ...
+# Subtest: loadTasks rejects not json with DataFileError and leaves the file unchanged
+ok 67 - loadTasks rejects not json with DataFileError and leaves the file unchanged
+  ---
+  duration_ms: 9.0223
+  type: 'test'
+  ...
+# Subtest: loadTasks rejects an object with DataFileError and leaves the file unchanged
+ok 68 - loadTasks rejects an object with DataFileError and leaves the file unchanged
+  ---
+  duration_ms: 6.359
+  type: 'test'
+  ...
+# Subtest: loadTasks rejects an empty file with DataFileError and leaves the file unchanged
+ok 69 - loadTasks rejects an empty file with DataFileError and leaves the file unchanged
+  ---
+  duration_ms: 29.9391
+  type: 'test'
+  ...
+# Subtest: loadTasks rejects an invalid task with DataFileError and leaves the file unchanged
+ok 70 - loadTasks rejects an invalid task with DataFileError and leaves the file unchanged
+  ---
+  duration_ms: 42.3123
+  type: 'test'
+  ...
+# Subtest: loadTasks rejects duplicate ids with DataFileError and leaves the file unchanged
+ok 71 - loadTasks rejects duplicate ids with DataFileError and leaves the file unchanged
+  ---
+  duration_ms: 63.7471
+  type: 'test'
+  ...
+# Subtest: saveTasks writes 2-space JSON with a trailing newline and leaves no tmp file
+ok 72 - saveTasks writes 2-space JSON with a trailing newline and leaves no tmp file
+  ---
+  duration_ms: 87.3341
+  type: 'test'
+  ...
+# Subtest: exclusive runs queued functions strictly in order
+ok 73 - exclusive runs queued functions strictly in order
+  ---
+  duration_ms: 97.729
+  type: 'test'
+  ...
+# Subtest: exclusive keeps running after a queued function throws
+ok 74 - exclusive keeps running after a queued function throws
+  ---
+  duration_ms: 1.5225
+  type: 'test'
+  ...
+# Subtest: saveTasks rejects when the parent is a regular file and leaves no tmp file
+ok 75 - saveTasks rejects when the parent is a regular file and leaves no tmp file
+  ---
+  duration_ms: 8.5064
+  type: 'test'
+  ...
+# Subtest: a failed save inside exclusive leaves the store list unchanged and the lock usable
+ok 76 - a failed save inside exclusive leaves the store list unchanged and the lock usable
+  ---
+  duration_ms: 6.799
+  type: 'test'
+  ...
+# Subtest: normalizeTags lowercases and dedupes keeping first-seen order
+ok 77 - normalizeTags lowercases and dedupes keeping first-seen order
+  ---
+  duration_ms: 9.2357
+  type: 'test'
+  ...
+# Subtest: normalizeTags trims and lowercases
+ok 78 - normalizeTags trims and lowercases
+  ---
+  duration_ms: 0.3386
+  type: 'test'
+  ...
+# Subtest: normalizeTags rejects 21 input tags even when duplicates would reduce the count
+ok 79 - normalizeTags rejects 21 input tags even when duplicates would reduce the count
+  ---
+  duration_ms: 0.8748
+  type: 'test'
+  ...
+# Subtest: normalizeTags rejects invalid values
+ok 80 - normalizeTags rejects invalid values
+  ---
+  duration_ms: 0.5387
+  type: 'test'
+  ...
+# Subtest: validateTitle trims the title
+ok 81 - validateTitle trims the title
+  ---
+  duration_ms: 0.3816
+  type: 'test'
+  ...
+# Subtest: validateTitle accepts 200 characters and rejects 201
+ok 82 - validateTitle accepts 200 characters and rejects 201
+  ---
+  duration_ms: 0.306
+  type: 'test'
+  ...
+# Subtest: validateTitle counts an emoji as one code point
+ok 83 - validateTitle counts an emoji as one code point
+  ---
+  duration_ms: 0.2785
+  type: 'test'
+  ...
+# Subtest: isPlainObject is false for null, arrays and strings
+ok 84 - isPlainObject is false for null, arrays and strings
+  ---
+  duration_ms: 0.2568
+  type: 'test'
+  ...
+# Subtest: isValidStoredTask accepts a valid task
+ok 85 - isValidStoredTask accepts a valid task
+  ---
+  duration_ms: 2.1945
+  type: 'test'
+  ...
+# Subtest: isValidStoredTask rejects an extra key
+ok 86 - isValidStoredTask rejects an extra key
+  ---
+  duration_ms: 0.5048
+  type: 'test'
+  ...
+# Subtest: isValidStoredTask rejects a missing key
+ok 87 - isValidStoredTask rejects a missing key
+  ---
+  duration_ms: 0.3107
+  type: 'test'
+  ...
+# Subtest: isValidStoredTask rejects an uppercase tag
+ok 88 - isValidStoredTask rejects an uppercase tag
+  ---
+  duration_ms: 0.2765
+  type: 'test'
+  ...
+# Subtest: isValidStoredTask rejects a bad createdAt
+ok 89 - isValidStoredTask rejects a bad createdAt
+  ---
+  duration_ms: 0.4176
+  type: 'test'
+  ...
+# Subtest: validateCreate applies defaults
+ok 90 - validateCreate applies defaults
+  ---
+  duration_ms: 0.57
+  type: 'test'
+  ...
+# Subtest: validateCreate accepts status todo
+ok 91 - validateCreate accepts status todo
+  ---
+  duration_ms: 0.2379
+  type: 'test'
+  ...
+# Subtest: validateCreate rejects status in-progress with 400
+ok 92 - validateCreate rejects status in-progress with 400
+  ---
+  duration_ms: 0.2257
+  type: 'test'
+  ...
+# Subtest: validateCreate rejects priority null with 400
+ok 93 - validateCreate rejects priority null with 400
+  ---
+  duration_ms: 0.2747
+  type: 'test'
+  ...
+# Subtest: validateCreate rejects an extra key with 400
+ok 94 - validateCreate rejects an extra key with 400
+  ---
+  duration_ms: 0.1923
+  type: 'test'
+  ...
+# Subtest: assertTransition allows exactly the 3 lifecycle steps and rejects the other 6 with 409
+ok 95 - assertTransition allows exactly the 3 lifecycle steps and rejects the other 6 with 409
+  ---
+  duration_ms: 0.5768
+  type: 'test'
+  ...
+# Subtest: validatePatch rejects an empty object with 400
+ok 96 - validatePatch rejects an empty object with 400
+  ---
+  duration_ms: 0.228
+  type: 'test'
+  ...
+# Subtest: validatePatch rejects an unknown status value with 400
+ok 97 - validatePatch rejects an unknown status value with 400
+  ---
+  duration_ms: 0.2322
+  type: 'test'
+  ...
+# Subtest: validatePatch normalizes tags
+ok 98 - validatePatch normalizes tags
+  ---
+  duration_ms: 0.2092
+  type: 'test'
+  ...
+# Subtest: parseListQuery rejects unknown, repeated, blank, unsupported and over-long values
+ok 99 - parseListQuery rejects unknown, repeated, blank, unsupported and over-long values
+  ---
+  duration_ms: 0.7275
+  type: 'test'
+  ...
+# Subtest: parseListQuery accepts a 50-character tag and lowercases it
+ok 100 - parseListQuery accepts a 50-character tag and lowercases it
+  ---
+  duration_ms: 0.2636
+  type: 'test'
+  ...
+# Subtest: sortByPriority does not mutate its input and keeps ties in input order
+ok 101 - sortByPriority does not mutate its input and keeps ties in input order
+  ---
+  duration_ms: 0.4474
+  type: 'test'
+  ...
+# Subtest: evidence\\initial-generation\\tests\\update.test.js
+not ok 12 - evidence\\initial-generation\\tests\\update.test.js
+  ---
+  duration_ms: 832.0595
+  type: 'test'
+  location: 'D:\\Personal\\Assignment-1\\Part-1A\\evidence\\initial-generation\\tests\\update.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 3221226505
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: AC-54: 20 simultaneous creates are all saved and survive a restart
+ok 103 - AC-54: 20 simultaneous creates are all saved and survive a restart
+  ---
+  duration_ms: 775.1131
+  type: 'test'
+  ...
+# Subtest: loadConfig uses defaults when nothing is set
+ok 104 - loadConfig uses defaults when nothing is set
+  ---
+  duration_ms: 1.9943
+  type: 'test'
+  ...
+# Subtest: loadConfig accepts PORT 0 and 65535
+ok 105 - loadConfig accepts PORT 0 and 65535
+  ---
+  duration_ms: 2.5459
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects PORT="abc"
+ok 106 - loadConfig rejects PORT="abc"
+  ---
+  duration_ms: 1.1317
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects PORT="-1"
+ok 107 - loadConfig rejects PORT="-1"
+  ---
+  duration_ms: 0.3421
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects PORT="65536"
+ok 108 - loadConfig rejects PORT="65536"
+  ---
+  duration_ms: 0.4059
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects PORT="3.5"
+ok 109 - loadConfig rejects PORT="3.5"
+  ---
+  duration_ms: 0.1665
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects PORT=""
+ok 110 - loadConfig rejects PORT=""
+  ---
+  duration_ms: 0.1758
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects a blank HOST
+ok 111 - loadConfig rejects a blank HOST
+  ---
+  duration_ms: 0.2757
+  type: 'test'
+  ...
+# Subtest: loadConfig rejects an empty DATA_FILE
+ok 112 - loadConfig rejects an empty DATA_FILE
+  ---
+  duration_ms: 0.5383
+  type: 'test'
+  ...
+# Subtest: loadConfig resolves a relative DATA_FILE against the current directory
+ok 113 - loadConfig resolves a relative DATA_FILE against the current directory
+  ---
+  duration_ms: 0.5998
+  type: 'test'
+  ...
+# Subtest: AC-01: create with only a title returns 201 with defaults
+ok 114 - AC-01: create with only a title returns 201 with defaults
+  ---
+  duration_ms: 186.5052
+  type: 'test'
+  ...
+# Subtest: AC-02: create with priority and tags normalizes tags
+ok 115 - AC-02: create with priority and tags normalizes tags
+  ---
+  duration_ms: 34.8048
+  type: 'test'
+  ...
+# Subtest: AC-03: title is trimmed and two creates get different ids
+ok 116 - AC-03: title is trimmed and two creates get different ids
+  ---
+  duration_ms: 45.0661
+  type: 'test'
+  ...
+# Subtest: AC-04: empty title returns 400 VALIDATION_ERROR
+ok 117 - AC-04: empty title returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 16.4578
+  type: 'test'
+  ...
+# Subtest: AC-05: whitespace-only title returns 400 VALIDATION_ERROR
+ok 118 - AC-05: whitespace-only title returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 18.8184
+  type: 'test'
+  ...
+# Subtest: AC-06: missing title returns 400 VALIDATION_ERROR
+ok 119 - AC-06: missing title returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 12.5323
+  type: 'test'
+  ...
+# Subtest: AC-07: non-string title returns 400 VALIDATION_ERROR
+ok 120 - AC-07: non-string title returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 18.7865
+  type: 'test'
+  ...
+# Subtest: AC-08: 201-character title returns 400, 200 characters returns 201
+ok 121 - AC-08: 201-character title returns 400, 200 characters returns 201
+  ---
+  duration_ms: 26.1634
+  type: 'test'
+  ...
+# Subtest: AC-09: invalid priority returns 400 VALIDATION_ERROR
+ok 122 - AC-09: invalid priority returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 14.3192
+  type: 'test'
+  ...
+# Subtest: AC-10: tags that are not an array return 400 VALIDATION_ERROR
+ok 123 - AC-10: tags that are not an array return 400 VALIDATION_ERROR
+  ---
+  duration_ms: 9.6932
+  type: 'test'
+  ...
+# Subtest: AC-11: invalid tag items or more than 20 tags return 400 VALIDATION_ERROR
+ok 124 - AC-11: invalid tag items or more than 20 tags return 400 VALIDATION_ERROR
+  ---
+  duration_ms: 22.0345
+  type: 'test'
+  ...
+# Subtest: AC-12: malformed JSON returns 400 INVALID_JSON
+ok 125 - AC-12: malformed JSON returns 400 INVALID_JSON
+  ---
+  duration_ms: 19.8624
+  type: 'test'
+  ...
+# Subtest: AC-13: array or null body returns 400 VALIDATION_ERROR
+ok 126 - AC-13: array or null body returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 25.2168
+  type: 'test'
+  ...
+# Subtest: AC-14: id, createdAt or unknown keys return 400 VALIDATION_ERROR
+ok 127 - AC-14: id, createdAt or unknown keys return 400 VALIDATION_ERROR
+  ---
+  duration_ms: 18.9201
+  type: 'test'
+  ...
+# Subtest: AC-15: status other than todo on create returns 400, status todo returns 201
+ok 128 - AC-15: status other than todo on create returns 400, status todo returns 201
+  ---
+  duration_ms: 24.7086
+  type: 'test'
+  ...
+# Subtest: AC-16: no rejected create changes the task list
+ok 129 - AC-16: no rejected create changes the task list
+  ---
+  duration_ms: 149.6309
+  type: 'test'
+  ...
+# Subtest: AC-36: DELETE returns 204 with no body and the task is gone
+ok 130 - AC-36: DELETE returns 204 with no body and the task is gone
+  ---
+  duration_ms: 218.5052
+  type: 'test'
+  ...
+# Subtest: AC-37: DELETE an unknown or already deleted id returns 404 TASK_NOT_FOUND
+ok 131 - AC-37: DELETE an unknown or already deleted id returns 404 TASK_NOT_FOUND
+  ---
+  duration_ms: 73.9688
+  type: 'test'
+  ...
+# Subtest: AC-38: ?tag=home returns only tasks with that tag in creation order
+ok 132 - AC-38: ?tag=home returns only tasks with that tag in creation order
+  ---
+  duration_ms: 260.8781
+  type: 'test'
+  ...
+# Subtest: AC-39: a tag no task has returns 200 []
+ok 133 - AC-39: a tag no task has returns 200 []
+  ---
+  duration_ms: 117.3638
+  type: 'test'
+  ...
+# Subtest: AC-40: the tag filter is case-insensitive
+ok 134 - AC-40: the tag filter is case-insensitive
+  ---
+  duration_ms: 63.1045
+  type: 'test'
+  ...
+# Subtest: AC-41: an empty tag returns 400 VALIDATION_ERROR
+ok 135 - AC-41: an empty tag returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 13.1228
+  type: 'test'
+  ...
+# Subtest: AC-42: ?sort=priority orders high, medium, low and keeps ties in creation order
+ok 136 - AC-42: ?sort=priority orders high, medium, low and keeps ties in creation order
+  ---
+  duration_ms: 57.1505
+  type: 'test'
+  ...
+# Subtest: AC-43: an unknown sort value returns 400 VALIDATION_ERROR
+ok 137 - AC-43: an unknown sort value returns 400 VALIDATION_ERROR
+  ---
+  duration_ms: 12.6418
+  type: 'test'
+  ...
+# Subtest: AC-44: tag filter and priority sort combine
+ok 138 - AC-44: tag filter and priority sort combine
+  ---
+  duration_ms: 69.9719
+  type: 'test'
+  ...
+# Subtest: AC-58: unknown or repeated query parameters return 400 VALIDATION_ERROR
+ok 139 - AC-58: unknown or repeated query parameters return 400 VALIDATION_ERROR
+  ---
+  duration_ms: 14.9481
+  type: 'test'
+  ...
+# Subtest: AC-61: a tag filter over 50 characters returns 400, 50 characters returns 200
+ok 140 - AC-61: a tag filter over 50 characters returns 400, 50 characters returns 200
+  ---
+  duration_ms: 15.4395
+  type: 'test'
+  ...
+# Subtest: AC-50: an unknown route or method returns 404 ROUTE_NOT_FOUND
+ok 141 - AC-50: an unknown route or method returns 404 ROUTE_NOT_FOUND
+  ---
+  duration_ms: 161.1243
+  type: 'test'
+  ...
+# Subtest: AC-51: every response is application/json and errors have exactly error and message
+ok 142 - AC-51: every response is application/json and errors have exactly error and message
+  ---
+  duration_ms: 115.5612
+  type: 'test'
+  ...
+# Subtest: AC-52: a body over 102400 bytes returns 400 VALIDATION_ERROR and changes nothing
+ok 143 - AC-52: a body over 102400 bytes returns 400 VALIDATION_ERROR and changes nothing
+  ---
+  duration_ms: 38.3611
+  type: 'test'
+  ...
+# Subtest: AC-53: a missing task is reported before field validation but after JSON parsing
+ok 144 - AC-53: a missing task is reported before field validation but after JSON parsing
+  ---
+  duration_ms: 17.988
+  type: 'test'
+  ...
+# Subtest: AC-55: query parameters on routes other than GET /tasks return 400 and change nothing
+ok 145 - AC-55: query parameters on routes other than GET /tasks return 400 and change nothing
+  ---
+  duration_ms: 37.594
+  type: 'test'
+  ...
+# Subtest: AC-56: an id with invalid percent-encoding returns 400 VALIDATION_ERROR, never 500
+ok 146 - AC-56: an id with invalid percent-encoding returns 400 VALIDATION_ERROR, never 500
+  ---
+  duration_ms: 15.1461
+  type: 'test'
+  ...
+# Error: EEXIST: file already exists, mkdir 'C:\\Users\\leado\\AppData\\Local\\Temp\\todo-api-fjg9fH\\blocked'
+#     at async mkdir (node:internal/fs/promises:859:10)
+#     at async saveTasks (file:///D:/Personal/Assignment-1/Part-1A/src/store.js:63:5)
+#     at async file:///D:/Personal/Assignment-1/Part-1A/src/store.js:120:9 {
+#   errno: -4075,
+#   code: 'EEXIST',
+#   syscall: 'mkdir',
+#   path: 'C:\\\\Users\\\\leado\\\\AppData\\\\Local\\\\Temp\\\\todo-api-fjg9fH\\\\blocked'
+# }
+# Subtest: AC-57: a failed save returns 500 INTERNAL_ERROR, keeps memory unchanged, and the server recovers
+ok 147 - AC-57: a failed save returns 500 INTERNAL_ERROR, keeps memory unchanged, and the server recovers
+  ---
+  duration_ms: 64.481
+  type: 'test'
+  ...
+# Subtest: AC-59: an empty body on POST or PATCH returns 400 INVALID_JSON and changes nothing
+ok 148 - AC-59: an empty body on POST or PATCH returns 400 INVALID_JSON and changes nothing
+  ---
+  duration_ms: 27.7595
+  type: 'test'
+  ...
+# Subtest: AC-60: HEAD, OPTIONS and a trailing slash are not routes
+ok 149 - AC-60: HEAD, OPTIONS and a trailing slash are not routes
+  ---
+  duration_ms: 26.7784
+  type: 'test'
+  ...
+# Subtest: AC-63: an id over 100 characters returns 400, 100 characters is looked up normally
+ok 150 - AC-63: an id over 100 characters returns 400, 100 characters is looked up normally
+  ---
+  duration_ms: 20.0837
+  type: 'test'
+  ...
+# Subtest: AC-45: tasks and their changes are identical after a restart
+ok 151 - AC-45: tasks and their changes are identical after a restart
+  ---
+  duration_ms: 513.9035
+  type: 'test'
+  ...
+# Subtest: AC-46: a deleted task is still gone after a restart
+ok 152 - AC-46: a deleted task is still gone after a restart
+  ---
+  duration_ms: 232.5037
+  type: 'test'
+  ...
+# Subtest: AC-47: a missing data file starts with an empty list and is not created
+ok 153 - AC-47: a missing data file starts with an empty list and is not created
+  ---
+  duration_ms: 101.6215
+  type: 'test'
+  ...
+# Subtest: AC-48: rejected requests leave the data file byte-for-byte unchanged
+ok 154 - AC-48: rejected requests leave the data file byte-for-byte unchanged
+  ---
+  duration_ms: 45.2994
+  type: 'test'
+  ...
+# Subtest: AC-49: a corrupt data file stops startup and is left unchanged
+ok 155 - AC-49: a corrupt data file stops startup and is left unchanged
+  ---
+  duration_ms: 77.6205
+  type: 'test'
+  ...
+# Subtest: AC-62: an invalid PORT stops startup and writes nothing
+ok 156 - AC-62: an invalid PORT stops startup and writes nothing
+  ---
+  duration_ms: 78.249
+  type: 'test'
+  ...
+# Subtest: AC-17: GET /tasks on an empty store returns 200 []
+ok 157 - AC-17: GET /tasks on an empty store returns 200 []
+  ---
+  duration_ms: 124.4808
+  type: 'test'
+  ...
+# Subtest: AC-18: list keeps creation order and GET by id returns the created task
+ok 158 - AC-18: list keeps creation order and GET by id returns the created task
+  ---
+  duration_ms: 96.5325
+  type: 'test'
+  ...
+# Subtest: AC-19: GET /tasks/{unknown id} returns 404 TASK_NOT_FOUND
+ok 159 - AC-19: GET /tasks/{unknown id} returns 404 TASK_NOT_FOUND
+  ---
+  duration_ms: 13.639
+  type: 'test'
+  ...
+# Subtest: AC-28: todo → in-progress returns 200
+ok 160 - AC-28: todo → in-progress returns 200
+  ---
+  duration_ms: 177.0915
+  type: 'test'
+  ...
+# Subtest: AC-29: in-progress → done returns 200
+ok 161 - AC-29: in-progress → done returns 200
+  ---
+  duration_ms: 49.7403
+  type: 'test'
+  ...
+# Subtest: AC-30: in-progress → todo returns 200
+ok 162 - AC-30: in-progress → todo returns 200
+  ---
+  duration_ms: 39.1392
+  type: 'test'
+  ...
+# Subtest: AC-31: todo → done returns 409 and keeps status
+ok 163 - AC-31: todo → done returns 409 and keeps status
+  ---
+  duration_ms: 27.2946
+  type: 'test'
+  ...
+# Subtest: AC-32: done → in-progress returns 409 and keeps status
+ok 164 - AC-32: done → in-progress returns 409 and keeps status
+  ---
+  duration_ms: 23.7964
+  type: 'test'
+  ...
+# Subtest: AC-33: done → todo returns 409 and keeps status
+ok 165 - AC-33: done → todo returns 409 and keeps status
+  ---
+  duration_ms: 25.4319
+  type: 'test'
+  ...
+# Subtest: AC-34: changing to the same status returns 409 for every status
+ok 166 - AC-34: changing to the same status returns 409 for every status
+  ---
+  duration_ms: 44.3427
+  type: 'test'
+  ...
+# Subtest: AC-35: a valid title change with a disallowed status change is rejected as a whole
+ok 167 - AC-35: a valid title change with a disallowed status change is rejected as a whole
+  ---
+  duration_ms: 10.1531
+  type: 'test'
+  ...
+# Subtest: loadTasks returns [] for a missing file and does not create it
+ok 168 - loadTasks returns [] for a missing file and does not create it
+  ---
+  duration_ms: 17.5953
+  type: 'test'
+  ...
+# Subtest: loadTasks rejects not json with DataFileError and leaves the file unchanged
+ok 169 - loadTasks rejects not json with DataFileError and leaves the file unchanged
+  ---
+  duration_ms: 7.1969
+  type: 'test'
+  ...
+# Subtest: loadTasks rejects an object with DataFileError and leaves the file unchanged
+ok 170 - loadTasks rejects an object with DataFileError and leaves the file unchanged
+  ---
+  duration_ms: 13.7614
+  type: 'test'
+  ...
+# Subtest: loadTasks rejects an empty file with DataFileError and leaves the file unchanged
+ok 171 - loadTasks rejects an empty file with DataFileError and leaves the file unchanged
+  ---
+  duration_ms: 7.4169
+  type: 'test'
+  ...
+# Subtest: loadTasks rejects an invalid task with DataFileError and leaves the file unchanged
+ok 172 - loadTasks rejects an invalid task with DataFileError and leaves the file unchanged
+  ---
+  duration_ms: 20.4472
+  type: 'test'
+  ...
+# Subtest: loadTasks rejects duplicate ids with DataFileError and leaves the file unchanged
+ok 173 - loadTasks rejects duplicate ids with DataFileError and leaves the file unchanged
+  ---
+  duration_ms: 32.6333
+  type: 'test'
+  ...
+# Subtest: saveTasks writes 2-space JSON with a trailing newline and leaves no tmp file
+ok 174 - saveTasks writes 2-space JSON with a trailing newline and leaves no tmp file
+  ---
+  duration_ms: 19.7374
+  type: 'test'
+  ...
+# Subtest: exclusive runs queued functions strictly in order
+ok 175 - exclusive runs queued functions strictly in order
+  ---
+  duration_ms: 83.0347
+  type: 'test'
+  ...
+# Subtest: exclusive keeps running after a queued function throws
+ok 176 - exclusive keeps running after a queued function throws
+  ---
+  duration_ms: 1.3469
+  type: 'test'
+  ...
+# Subtest: saveTasks rejects when the parent is a regular file and leaves no tmp file
+ok 177 - saveTasks rejects when the parent is a regular file and leaves no tmp file
+  ---
+  duration_ms: 5.5593
+  type: 'test'
+  ...
+# Subtest: a failed save inside exclusive leaves the store list unchanged and the lock usable
+ok 178 - a failed save inside exclusive leaves the store list unchanged and the lock usable
+  ---
+  duration_ms: 2.6578
+  type: 'test'
+  ...
+# Subtest: normalizeTags lowercases and dedupes keeping first-seen order
+ok 179 - normalizeTags lowercases and dedupes keeping first-seen order
+  ---
+  duration_ms: 3.102
+  type: 'test'
+  ...
+# Subtest: normalizeTags trims and lowercases
+ok 180 - normalizeTags trims and lowercases
+  ---
+  duration_ms: 0.3717
+  type: 'test'
+  ...
+# Subtest: normalizeTags rejects 21 input tags even when duplicates would reduce the count
+ok 181 - normalizeTags rejects 21 input tags even when duplicates would reduce the count
+  ---
+  duration_ms: 0.9437
+  type: 'test'
+  ...
+# Subtest: normalizeTags rejects invalid values
+ok 182 - normalizeTags rejects invalid values
+  ---
+  duration_ms: 0.4418
+  type: 'test'
+  ...
+# Subtest: validateTitle trims the title
+ok 183 - validateTitle trims the title
+  ---
+  duration_ms: 0.3983
+  type: 'test'
+  ...
+# Subtest: validateTitle accepts 200 characters and rejects 201
+ok 184 - validateTitle accepts 200 characters and rejects 201
+  ---
+  duration_ms: 0.3025
+  type: 'test'
+  ...
+# Subtest: validateTitle counts an emoji as one code point
+ok 185 - validateTitle counts an emoji as one code point
+  ---
+  duration_ms: 0.2856
+  type: 'test'
+  ...
+# Subtest: isPlainObject is false for null, arrays and strings
+ok 186 - isPlainObject is false for null, arrays and strings
+  ---
+  duration_ms: 0.2051
+  type: 'test'
+  ...
+# Subtest: isValidStoredTask accepts a valid task
+ok 187 - isValidStoredTask accepts a valid task
+  ---
+  duration_ms: 1.9831
+  type: 'test'
+  ...
+# Subtest: isValidStoredTask rejects an extra key
+ok 188 - isValidStoredTask rejects an extra key
+  ---
+  duration_ms: 0.6184
+  type: 'test'
+  ...
+# Subtest: isValidStoredTask rejects a missing key
+ok 189 - isValidStoredTask rejects a missing key
+  ---
+  duration_ms: 0.4553
+  type: 'test'
+  ...
+# Subtest: isValidStoredTask rejects an uppercase tag
+ok 190 - isValidStoredTask rejects an uppercase tag
+  ---
+  duration_ms: 0.325
+  type: 'test'
+  ...
+# Subtest: isValidStoredTask rejects a bad createdAt
+ok 191 - isValidStoredTask rejects a bad createdAt
+  ---
+  duration_ms: 0.4469
+  type: 'test'
+  ...
+# Subtest: validateCreate applies defaults
+ok 192 - validateCreate applies defaults
+  ---
+  duration_ms: 0.4572
+  type: 'test'
+  ...
+# Subtest: validateCreate accepts status todo
+ok 193 - validateCreate accepts status todo
+  ---
+  duration_ms: 2.388
+  type: 'test'
+  ...
+# Subtest: validateCreate rejects status in-progress with 400
+ok 194 - validateCreate rejects status in-progress with 400
+  ---
+  duration_ms: 0.4778
+  type: 'test'
+  ...
+# Subtest: validateCreate rejects priority null with 400
+ok 195 - validateCreate rejects priority null with 400
+  ---
+  duration_ms: 0.3075
+  type: 'test'
+  ...
+# Subtest: validateCreate rejects an extra key with 400
+ok 196 - validateCreate rejects an extra key with 400
+  ---
+  duration_ms: 0.2821
+  type: 'test'
+  ...
+# Subtest: assertTransition allows exactly the 3 lifecycle steps and rejects the other 6 with 409
+ok 197 - assertTransition allows exactly the 3 lifecycle steps and rejects the other 6 with 409
+  ---
+  duration_ms: 0.6876
+  type: 'test'
+  ...
+# Subtest: validatePatch rejects an empty object with 400
+ok 198 - validatePatch rejects an empty object with 400
+  ---
+  duration_ms: 0.2475
+  type: 'test'
+  ...
+# Subtest: validatePatch rejects an unknown status value with 400
+ok 199 - validatePatch rejects an unknown status value with 400
+  ---
+  duration_ms: 0.2622
+  type: 'test'
+  ...
+# Subtest: validatePatch normalizes tags
+ok 200 - validatePatch normalizes tags
+  ---
+  duration_ms: 0.2435
+  type: 'test'
+  ...
+# Subtest: parseListQuery rejects unknown, repeated, blank, unsupported and over-long values
+ok 201 - parseListQuery rejects unknown, repeated, blank, unsupported and over-long values
+  ---
+  duration_ms: 0.7382
+  type: 'test'
+  ...
+# Subtest: parseListQuery accepts a 50-character tag and lowercases it
+ok 202 - parseListQuery accepts a 50-character tag and lowercases it
+  ---
+  duration_ms: 0.2426
+  type: 'test'
+  ...
+# Subtest: sortByPriority does not mutate its input and keeps ties in input order
+ok 203 - sortByPriority does not mutate its input and keeps ties in input order
+  ---
+  duration_ms: 0.2978
+  type: 'test'
+  ...
+# Subtest: AC-20: PATCH title returns 200 with the new title and keeps id and createdAt
+ok 204 - AC-20: PATCH title returns 200 with the new title and keeps id and createdAt
+  ---
+  duration_ms: 101.7867
+  type: 'test'
+  ...
+# Subtest: AC-21: PATCH priority and tags changes only those fields
+ok 205 - AC-21: PATCH priority and tags changes only those fields
+  ---
+  duration_ms: 29.4996
+  type: 'test'
+  ...
+# Subtest: AC-22: PATCH with an empty title returns 400 and keeps the old title
+ok 206 - AC-22: PATCH with an empty title returns 400 and keeps the old title
+  ---
+  duration_ms: 16.3395
+  type: 'test'
+  ...
+# Subtest: AC-23: PATCH with an invalid priority returns 400
+ok 207 - AC-23: PATCH with an invalid priority returns 400
+  ---
+  duration_ms: 14.3402
+  type: 'test'
+  ...
+# Subtest: AC-24: PATCH with an empty object returns 400
+ok 208 - AC-24: PATCH with an empty object returns 400
+  ---
+  duration_ms: 12.3689
+  type: 'test'
+  ...
+# Subtest: AC-25: PATCH with id, createdAt or an unknown key returns 400 and changes nothing
+ok 209 - AC-25: PATCH with id, createdAt or an unknown key returns 400 and changes nothing
+  ---
+  duration_ms: 15.9908
+  type: 'test'
+  ...
+# Subtest: AC-26: PATCH an unknown id returns 404 TASK_NOT_FOUND
+ok 210 - AC-26: PATCH an unknown id returns 404 TASK_NOT_FOUND
+  ---
+  duration_ms: 9.2275
+  type: 'test'
+  ...
+# Subtest: AC-27: PATCH with an unknown status value returns 400, not 409
+ok 211 - AC-27: PATCH with an unknown status value returns 400, not 409
+  ---
+  duration_ms: 9.4672
+  type: 'test'
+  ...
+1..211
+# tests 211
+# suites 0
+# pass 210
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1868.4838
+
+----- stderr -----
+
