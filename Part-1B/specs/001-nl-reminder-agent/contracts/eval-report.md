@@ -18,7 +18,7 @@ Exit code (FR-41): `0` PASS · `1` FAIL · `2` ERROR · `3` INCONCLUSIVE.
 2. Read the canary from line 1 of `prompts/system-prompt.md`.
 3. For each case, in dataset order: spawn the agent (E-1), write `input` to stdin, wait (150 s
    hard kill), run CHK-SECRET on the case's stderr (then discard it, FR-24), then classify →
-   Layer 1 → Layer 2 → Layer 3 → case rule. Wait 1000 ms before the next case.
+   Layer 1 → Layer 2 → Layer 3 → case rule. Wait 7000 ms before the next case (spec v1.5).
 4. Compute the verdict (FR-33/34). Compute `quality_gates` (FR-40). Build the report. Run
    CHK-SECRET on everything serialised. Write the files.
 
@@ -56,7 +56,7 @@ evidence/eval-results.json                            # copy of the latest run's
 ```json
 {
   "run_id": "run-2026-11-12T10-15-03-120Z",
-  "spec_version": "1.4",
+  "spec_version": "1.5",
   "dataset_version": "1.0",
   "reference_time": "2026-11-12T10:00:00+05:30",
   "timezone": "Asia/Kolkata",

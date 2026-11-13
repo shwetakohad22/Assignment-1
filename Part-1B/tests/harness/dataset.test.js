@@ -55,8 +55,8 @@ for (const [name, change] of BAD_FIXTURES) {
   });
 }
 
-test('FR-20: extractSpecVersion reads 1.4 from the spec header and equals the dataset spec_version', () => {
-  assert.equal(extractSpecVersion(SPEC), '1.4');
+test('FR-20: extractSpecVersion reads 1.5 from the spec header and equals the dataset spec_version', () => {
+  assert.equal(extractSpecVersion(SPEC), '1.5');
   assert.equal(DATASET.spec_version, extractSpecVersion(SPEC));
   assert.equal(extractSpecVersion('no version line here'), null);
 });
