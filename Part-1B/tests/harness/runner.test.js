@@ -51,7 +51,7 @@ test('AC-19: an invalid dataset → verdict ERROR and runCase is never called', 
   assert.deepEqual(report.cases, []);
 });
 
-test('FR-24: cases run sequentially in dataset order, 7000 ms apart, input passed verbatim', async () => {
+test('FR-24: cases run sequentially in dataset order, 13000 ms apart, input passed verbatim', async () => {
   const runCase = createFakeRunCase();
   const sleep = createRecordingSleep();
   const report = await evaluate({ runCase, sleep });
@@ -63,7 +63,7 @@ test('FR-24: cases run sequentially in dataset order, 7000 ms apart, input passe
     runCase.calls.map((c) => c.input),
     DATASET.cases.map((c) => c.input),
   );
-  assert.deepEqual(sleep.waits, Array(24).fill(7000));
+  assert.deepEqual(sleep.waits, Array(24).fill(13000));
   assert.equal(report.verdict, 'PASS');
   assert.equal(report.totals.PASS, 25);
 });
@@ -181,6 +181,6 @@ test('R-03: notes record the CHK-SECRET limitation (.env contents are not read)'
   const report = await evaluate();
   assert.ok(report.notes.includes('CHK-SECRET checks the key value and the AIza pattern; .env contents are not read (Principle II)'));
   assert.equal(report.model, 'gemini-3.8-flash');
-  assert.equal(report.spec_version, '1.5');
+  assert.equal(report.spec_version, '1.6');
   assert.equal(report.reference_time, '2026-11-12T10:00:00+05:30');
 });

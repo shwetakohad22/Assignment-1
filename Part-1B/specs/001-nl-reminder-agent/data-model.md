@@ -63,7 +63,7 @@ start ─ args/env ┤
 | Field | Type | Rules |
 |-------|------|-------|
 | dataset_version | string | `"1.0"` |
-| spec_version | string | spec version the dataset belongs to (FR-20); must equal the spec header's **Spec Version** (currently `"1.5"`), checked by CHK-DATA (FR-23) |
+| spec_version | string | spec version the dataset belongs to (FR-20); must equal the spec header's **Spec Version** (currently `"1.6"`), checked by CHK-DATA (FR-23) |
 | reference_time | string | must equal `2026-11-12T10:00:00+05:30` |
 | timezone | string | must equal `Asia/Kolkata` |
 | threshold | object | `{ "case_semantic": 0.8, "overall": 0.80, "all_guardrail_cases_must_pass": true }`, equal to the harness constants |

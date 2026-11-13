@@ -1,6 +1,6 @@
 # Implementation Plan: Natural-Language Reminder Agent
 
-**Branch**: `001-nl-reminder-agent` | **Date**: 2026-11-12 | **Spec**: [spec.md](spec.md) (v1.5)
+**Branch**: `001-nl-reminder-agent` | **Date**: 2026-11-12 | **Spec**: [spec.md](spec.md) (v1.6)
 
 **Input**: Feature specification from `specs/001-nl-reminder-agent/spec.md`
 
@@ -38,7 +38,7 @@ patterns (≥ 21). Same runtime as Part-1A.
 `fetch`, `AbortSignal`, `URL`. **Dev**: `eslint` (+ `@eslint/js`, its own recommended config).
 
 **Model**: Gemini `generateContent` REST API. Default model is `gemini-3.8-flash` (spec v1.2 FR-04; D-1 resolved),
-overridable with `GEMINI_MODEL`.
+overridable with `GEMINI_MODEL`. The live evaluation is run with `GEMINI_MODEL=gemini-2.5-flash` (spec v1.6 Assumptions).
 
 **Secrets**: `GEMINI_API_KEY` is loaded by Node itself via `node --env-file=.env …`. No dotenv
 package. No code path opens, reads or prints `.env`.
@@ -56,7 +56,7 @@ Tests make no network calls and spawn no child processes.
 **Performance Goals**: SC-05. At most 20 s per model attempt. At most 120 s worst case with retries
 (3 × 20 s + 2 × 30 s capped `Retry-After`). Malformed input is answered in < 50 ms with no network.
 
-**Constraints**: free-tier rate limits. Cases run sequentially with ≥ 7 s (7000 ms) between cases (FR-24, spec v1.5).
+**Constraints**: free-tier rate limits. Cases run sequentially with ≥ 13 s (13000 ms) between cases (FR-24, spec v1.6).
 At most 3 attempts per call (FR-38). Stdout carries only the one JSON object.
 
 **Scale/Scope**: 1 message per invocation. 25 evaluation cases. About 10 source modules, about 8
@@ -75,7 +75,7 @@ harness modules, about 15 test files.
 | V. Layered, traceable, pre-declared evaluation | Three layers in fixed order, all deterministic, no LLM judge. Threshold constants are copied verbatim from FR-32 to FR-35 and cross-checked against `dataset.json.threshold` (CHK-DATA). Every case traces to spec IDs, which are validated by parsing `spec.md`. | ✅ |
 | VI. Honest failure classification | Agent stderr diagnostics report attempts and failure kind. The runner classifies `SERVICE_FAILURE` and keeps it in the denominator. The verdict can be `INCONCLUSIVE`. Service-failure IDs are always listed. | ✅ |
 | VII. Evaluation integrity | No skip or filter flags in the runner. The case list cannot be filtered. Thresholds are constants plus a data cross-check. Run folders are write-once. Failing runs are preserved. | ✅ |
-| VIII. Spec-first change control | D-1 is routed to spec revision 1.2 before implementation. The /speckit-analyze fixes (FR cross-references, 4xx classification, Node 22, dataset `spec_version`, stderr secret scan, `quality_gates`, known limitation) were recorded as spec revision 1.3 before this plan was updated. Dataset v1.0 is transcribed exactly from FR-22. | ✅ D-1 resolved by spec revision 1.2; analysis fixes recorded as spec revision 1.3; FR-34 secret-hit ERROR rule (N1) recorded as spec revision 1.4 (all 2026-11-12); FR-24 pause between cases raised from 1000 ms to 7000 ms recorded as spec revision 1.5 (2026-11-13, after run run-2026-11-13T04-46-48-342Z, before any new evaluation run) |
+| VIII. Spec-first change control | D-1 is routed to spec revision 1.2 before implementation. The /speckit-analyze fixes (FR cross-references, 4xx classification, Node 22, dataset `spec_version`, stderr secret scan, `quality_gates`, known limitation) were recorded as spec revision 1.3 before this plan was updated. Dataset v1.0 is transcribed exactly from FR-22. | ✅ D-1 resolved by spec revision 1.2; analysis fixes recorded as spec revision 1.3; FR-34 secret-hit ERROR rule (N1) recorded as spec revision 1.4 (all 2026-11-12); FR-24 pause between cases raised from 1000 ms to 7000 ms recorded as spec revision 1.5 (2026-11-13, after run run-2026-11-13T04-46-48-342Z, before any new evaluation run); FR-24 pause raised from 7000 ms to 13000 ms and live-evaluation model gemini-2.5-flash recorded as spec revision 1.6 (2026-11-13, after run run-2026-11-13T07-13-00-363Z, before any new evaluation run) |
 | Governance: documented exceptions | **E-1** (child_process in the evaluation runner) is documented with ID, reason, scope and date (see Complexity Tracking). It weakens neither II nor VII. | ✅ documented |
 
 **Gate result (pre-research)**: PASS, on the condition that spec revision 1.2 (D-1) is recorded
@@ -121,7 +121,7 @@ Details are in [contracts/model-request.md](contracts/model-request.md).
 run-evals.js (entry; the ONLY file using child_process, exception E-1)
   └─ lib/runner.js  runEvaluation({ dataset, specText, runCase, now, keyForScan })   ← pure, testable
        1. lib/dataset.js        CHK-DATA (FR-23, incl. spec_version = spec.md "Spec Version"): any error → verdict ERROR, agent never started
-       2. for each case, sequentially, ≥7 s (7000 ms) apart:
+       2. for each case, sequentially, ≥13 s (13000 ms) apart:
             runCase(case) → { stdout, stderr, exitCode, timedOut }          (spawn injected)
             CHK-SECRET on stderr (key value + AIza pattern) → hit recorded by case ID; raw stderr then discarded (FR-24)
             lib/classify.js     SERVICE_FAILURE | CONFIG_ERROR | evaluated     (FR-31, FR-36)
@@ -243,7 +243,7 @@ tests use a fake `fetch` and a no-wait `sleep`.
 | FR-19, FR-20, FR-22 | `evals/dataset.json` transcribes the 25 FR-22 rows verbatim. EV-20 input is `"remind me to drink water "` × 48, stored literally (1,200 chars, no generation code). | `dataset.test.js`: 25 cases, the category counts 8/5/2/2/3/5, EV-20 length 1200 |
 | FR-21 | `expected` shape validated in `lib/dataset.js` | fixture with a malformed `expected` → ERROR |
 | FR-23 / AC-19 / CHK-DATA | `lib/dataset.js` + `lib/spec-ids.js`. Spec IDs are extracted from `spec.md` with `/\b(FR|AC|INV|BP|GR)-\d{2}[a-h]?\b/g`. The threshold is compared to the `THRESHOLD` constants. `dataset.spec_version` must equal the version in the spec header line `**Spec Version**: X.Y` (`extractSpecVersion` in `lib/spec-ids.js`). | fixtures: 14 cases, a missing category, duplicate ID, unknown `traces_to` ID `FR-99`, adversarial with `guardrail:false`, wrong reference time, threshold 0.7, `spec_version` `"1.2"` → each ERROR **and** `runCase` never called |
-| FR-24 | `run-evals.js` `runCase`: `spawn(process.execPath, [AGENT_ENTRY, '--reference-time', ref, '--timezone', tz], { shell: false, env: process.env, stdio: 'pipe' })`; it writes `input` to stdin and closes it; it collects stdout/stderr/exit code. Hard kill after 150 s (above the SC-05 bound) → recorded `timedOut`, no stdout → Layer 1 FAIL (application failure). There is a 7000 ms gap between cases (spec v1.5). In `lib/runner.js`, each case's stderr is scanned by CHK-SECRET (key value when set, `AIza` pattern) **before** it is discarded; a hit is recorded as the case ID in `stderr_secret_hits` (never the matched text). | `runner.test.js` with an injected fake `runCase` (no real spawn): sequential order, a gap ≥ 7000 ms (fake clock), stdin text received verbatim; a fake stderr containing the fake key → its case ID in `stderr_secret_hits` and the key nowhere in the report |
+| FR-24 | `run-evals.js` `runCase`: `spawn(process.execPath, [AGENT_ENTRY, '--reference-time', ref, '--timezone', tz], { shell: false, env: process.env, stdio: 'pipe' })`; it writes `input` to stdin and closes it; it collects stdout/stderr/exit code. Hard kill after 150 s (above the SC-05 bound) → recorded `timedOut`, no stdout → Layer 1 FAIL (application failure). There is a 13000 ms gap between cases (spec v1.6). In `lib/runner.js`, each case's stderr is scanned by CHK-SECRET (key value when set, `AIza` pattern) **before** it is discarded; a hit is recorded as the case ID in `stderr_secret_hits` (never the matched text). | `runner.test.js` with an injected fake `runCase` (no real spawn): sequential order, a gap ≥ 13000 ms (fake clock), stdin text received verbatim; a fake stderr containing the fake key → its case ID in `stderr_secret_hits` and the key nowhere in the report |
 | FR-25 | no judge exists. The harness never calls `fetch`. | `stack.test.js`: `.harness/` contains no `fetch(` |
 | FR-26..29 | `evaluators/quality.js` `normalise` (NFKC, lower, non-alnum → space, collapse, trim), `taskScore`, `timeScore` | `quality.test.js`: the 4 worked-example rows of FR-35, synonym lists, word-boundary ("call" does not match "recall"), instant equality across offsets (an output must also be `+05:30`) |
 | FR-30, FR-32 | the case rule in `lib/runner.js`. The semantic score is always computed and reported. | L2 fail + score 1.0 → FAIL (worked-example row 4) |
@@ -256,7 +256,7 @@ tests use a fake `fetch` and a no-wait `sleep`.
 | CHK-SECRET / AC-22 / FR-24 | `report.js` serialises everything in memory, then scans it for the key value (if set) and the `AIza` pattern. On a hit, it replaces the match with `[REDACTED]`, sets the verdict to ERROR with note `secret_detected`, and only then writes. Per-case stderr and stdout are scanned in `runner.js` before they are discarded (raw stderr and raw stdout are never stored); a hit is handled the same way (verdict ERROR, note `secret_detected: stderr <caseId>` or `secret_detected: stdout <caseId>`). Verdict ERROR on any CHK-SECRET hit is spec FR-34 (since v1.4). Any hit makes the Secrets gate `FAIL`. | `report.test.js` and `runner.test.js` with a fake key |
 | Evidence | `evidence/initial-generation/` is copied right after the code is first generated and its tests pass (T080, after T073) and **before** any quality-gate repair, so it is the true initial output. `evidence/final-generation/` is copied after the live run and any repairs (T082). `evidence/eval-results.json` (latest run, overwritten) and `evidence/eval-runs/run-<ISO-ts with ':'→'-'>/{eval-results.json, summary.md}`. The folder is made with `fs.mkdirSync(dir)` (non-recursive final segment → `EEXIST` aborts) and files are written with flag `wx`, so a run folder can never be overwritten. | `report.test.js` in a temp dir: second write to the same folder throws, and the first content is unchanged |
 
-**Rate limits (free tier)**: sequential cases, a 7 s gap (spec v1.5), the agent's own 2 s/5 s/`Retry-After`
+**Rate limits (free tier)**: sequential cases, a 13 s gap (spec v1.6), the agent's own 2 s/5 s/`Retry-After`
 backoff, and at most 3 attempts. The runner never re-runs a case. Worst case is about
 25 × 121 s ≈ 50 min. In practice it is about 25 × (1 to 4 s) plus the gaps.
 
@@ -291,7 +291,7 @@ up front here (before any harness run) and repeated in `evidence/harness-log.md`
 
 ```text
 specs/001-nl-reminder-agent/
-├── spec.md              # v1.5 (D-1 in 1.2; analysis fixes in 1.3; FR-34 secret-hit rule in 1.4; all 2026-11-12; FR-24 7000 ms pause in 1.5, 2026-11-13)
+├── spec.md              # v1.6 (D-1 in 1.2; analysis fixes in 1.3; FR-34 secret-hit rule in 1.4; all 2026-11-12; FR-24 7000 ms pause in 1.5; FR-24 13000 ms pause and evaluation model gemini-2.5-flash in 1.6; both 2026-11-13)
 ├── plan.md              # this file
 ├── research.md          # Phase 0
 ├── data-model.md        # Phase 1

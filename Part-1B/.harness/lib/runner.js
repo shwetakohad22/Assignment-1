@@ -13,7 +13,7 @@ import { taskScore, timeScore } from '../evaluators/quality.js';
 
 export const KEY_PATTERN = /AIza[0-9A-Za-z_-]{35}/;
 export const LIMITATION_NOTE = 'CHK-SECRET checks the key value and the AIza pattern; .env contents are not read (Principle II)';
-const GAP_MS = 7000;
+const GAP_MS = 13000;
 
 export function containsSecret(text, keyForScan) {
   const s = String(text ?? '');
@@ -172,7 +172,7 @@ export async function runEvaluation({ dataset, specText, canary, runCase, sleep,
     return assemble({ base, ...empty, datasetErrors, finishedAt: iso(now()) });
   }
 
-  // 2. every case, in dataset order, exactly once, 7000 ms apart (FR-24, FR-39)
+  // 2. every case, in dataset order, exactly once, 13000 ms apart (FR-24, FR-39)
   const referenceMs = Date.parse(dataset.reference_time);
   const caseResults = [];
   const stderrHits = [];

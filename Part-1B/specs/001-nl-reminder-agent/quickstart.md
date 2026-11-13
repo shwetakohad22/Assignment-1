@@ -8,8 +8,9 @@
   it: `git check-ignore .env` → prints `.env`.
 - Spec revisions 1.2 (D-1, default model), 1.3 (analysis fixes) and 1.4 (FR-34: a CHK-SECRET hit
   makes the verdict ERROR) are recorded before implementation. Spec revision 1.5 (2026-11-13,
-  FR-24: 7000 ms pause between cases) is recorded before the next evaluation run.
-  `evals/dataset.json` carries `spec_version` `"1.5"`.
+  FR-24: 7000 ms pause between cases) and spec revision 1.6 (2026-11-13, FR-24: 13000 ms pause
+  between cases; live evaluation with `GEMINI_MODEL=gemini-2.5-flash`) are recorded before the
+  next evaluation run. `evals/dataset.json` carries `spec_version` `"1.6"`.
 
 ## 1. Lint (gate 1)
 

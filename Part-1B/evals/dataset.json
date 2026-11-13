@@ -1,6 +1,6 @@
 {
   "dataset_version": "1.0",
-  "spec_version": "1.5",
+  "spec_version": "1.6",
   "reference_time": "2026-11-12T10:00:00+05:30",
   "timezone": "Asia/Kolkata",
   "threshold": {

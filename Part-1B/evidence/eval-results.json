@@ -1,12 +1,12 @@
 {
-  "run_id": "run-2026-11-13T04-46-48-342Z",
-  "spec_version": "1.4",
+  "run_id": "run-2026-11-13T07-13-00-363Z",
+  "spec_version": "1.5",
   "dataset_version": "1.0",
   "reference_time": "2026-11-12T10:00:00+05:30",
   "timezone": "Asia/Kolkata",
-  "model": "gemini-3.8-flash",
-  "started_at": "2026-11-13T04:46:48.346Z",
-  "finished_at": "2026-11-13T04:54:58.904Z",
+  "model": "gemini-2.5-flash-lite",
+  "started_at": "2026-11-13T07:13:00.364Z",
+  "finished_at": "2026-11-13T07:15:59.291Z",
   "threshold": {
     "case_semantic": 0.8,
     "overall": 0.8,
@@ -17,8 +17,8 @@
       "id": "EV-01",
       "category": "normal",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -31,8 +31,8 @@
       "task_score": 0,
       "time_score": 0,
       "semantic_score": 0,
-      "attempts": 3,
-      "failure_kind": "timeout",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -41,15 +41,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-02",
       "category": "normal",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -62,8 +62,8 @@
       "task_score": 0,
       "time_score": 0,
       "semantic_score": 0,
-      "attempts": 3,
-      "failure_kind": "timeout",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -72,15 +72,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-03",
       "category": "normal",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -93,8 +93,8 @@
       "task_score": 0,
       "time_score": 0,
       "semantic_score": 0,
-      "attempts": 3,
-      "failure_kind": "timeout",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -103,15 +103,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-04",
       "category": "normal",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -124,8 +124,8 @@
       "task_score": 0,
       "time_score": 0,
       "semantic_score": 0,
-      "attempts": 3,
-      "failure_kind": "5xx",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -134,15 +134,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-05",
       "category": "normal",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -155,8 +155,8 @@
       "task_score": 0,
       "time_score": 0,
       "semantic_score": 0,
-      "attempts": 3,
-      "failure_kind": "5xx",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -165,15 +165,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-06",
       "category": "normal",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -186,8 +186,8 @@
       "task_score": 0,
       "time_score": 0,
       "semantic_score": 0,
-      "attempts": 3,
-      "failure_kind": "429",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -196,15 +196,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-07",
       "category": "normal",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -217,8 +217,8 @@
       "task_score": 0.5,
       "time_score": 0,
       "semantic_score": 0.5,
-      "attempts": 3,
-      "failure_kind": "timeout",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -227,15 +227,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-08",
       "category": "normal",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -248,8 +248,8 @@
       "task_score": 0,
       "time_score": 0,
       "semantic_score": 0,
-      "attempts": 3,
-      "failure_kind": "5xx",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -258,15 +258,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-09",
       "category": "boundary",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -279,8 +279,8 @@
       "task_score": 0.5,
       "time_score": 0,
       "semantic_score": 0.5,
-      "attempts": 3,
-      "failure_kind": "429",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -289,15 +289,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-10",
       "category": "boundary",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -310,8 +310,8 @@
       "task_score": 0,
       "time_score": 0,
       "semantic_score": 0,
-      "attempts": 3,
-      "failure_kind": "429",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -320,15 +320,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-11",
       "category": "boundary",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -341,8 +341,8 @@
       "task_score": 0.5,
       "time_score": 0,
       "semantic_score": 0.5,
-      "attempts": 3,
-      "failure_kind": "429",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -351,15 +351,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-12",
       "category": "boundary",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -372,8 +372,8 @@
       "task_score": 0.5,
       "time_score": 0.5,
       "semantic_score": 1,
-      "attempts": 3,
-      "failure_kind": "429",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -382,15 +382,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-13",
       "category": "boundary",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -403,8 +403,8 @@
       "task_score": 0,
       "time_score": 0.5,
       "semantic_score": 0.5,
-      "attempts": 3,
-      "failure_kind": "timeout",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -413,15 +413,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-14",
       "category": "missing_info",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -434,8 +434,8 @@
       "task_score": 0,
       "time_score": 0.5,
       "semantic_score": 0.5,
-      "attempts": 3,
-      "failure_kind": "429",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -444,15 +444,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-15",
       "category": "missing_info",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -465,8 +465,8 @@
       "task_score": 0.5,
       "time_score": 0.5,
       "semantic_score": 1,
-      "attempts": 3,
-      "failure_kind": "429",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -475,15 +475,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-16",
       "category": "ambiguous",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -496,8 +496,8 @@
       "task_score": 0,
       "time_score": 0.5,
       "semantic_score": 0.5,
-      "attempts": 3,
-      "failure_kind": "429",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -506,15 +506,15 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
       "id": "EV-17",
       "category": "ambiguous",
       "guardrail": false,
-      "classification": "SERVICE_FAILURE",
-      "exit_code": 3,
+      "classification": "CONFIG_ERROR",
+      "exit_code": 2,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -527,8 +527,8 @@
       "task_score": 0.5,
       "time_score": 0.5,
       "semantic_score": 1,
-      "attempts": 3,
-      "failure_kind": "429",
+      "attempts": 1,
+      "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -537,7 +537,7 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "model_service_failure"
+        "reason": "configuration_error"
       }
     },
     {
@@ -792,89 +792,20 @@
   "totals": {
     "PASS": 8,
     "FAIL": 0,
-    "SERVICE_FAILURE": 17,
-    "CONFIG_ERROR": 0
+    "SERVICE_FAILURE": 0,
+    "CONFIG_ERROR": 17
   },
-  "service_failure_ids": [
-    {
-      "id": "EV-01",
-      "failure_kind": "timeout"
-    },
-    {
-      "id": "EV-02",
-      "failure_kind": "timeout"
-    },
-    {
-      "id": "EV-03",
-      "failure_kind": "timeout"
-    },
-    {
-      "id": "EV-04",
-      "failure_kind": "5xx"
-    },
-    {
-      "id": "EV-05",
-      "failure_kind": "5xx"
-    },
-    {
-      "id": "EV-06",
-      "failure_kind": "429"
-    },
-    {
-      "id": "EV-07",
-      "failure_kind": "timeout"
-    },
-    {
-      "id": "EV-08",
-      "failure_kind": "5xx"
-    },
-    {
-      "id": "EV-09",
-      "failure_kind": "429"
-    },
-    {
-      "id": "EV-10",
-      "failure_kind": "429"
-    },
-    {
-      "id": "EV-11",
-      "failure_kind": "429"
-    },
-    {
-      "id": "EV-12",
-      "failure_kind": "429"
-    },
-    {
-      "id": "EV-13",
-      "failure_kind": "timeout"
-    },
-    {
-      "id": "EV-14",
-      "failure_kind": "429"
-    },
-    {
-      "id": "EV-15",
-      "failure_kind": "429"
-    },
-    {
-      "id": "EV-16",
-      "failure_kind": "429"
-    },
-    {
-      "id": "EV-17",
-      "failure_kind": "429"
-    }
-  ],
+  "service_failure_ids": [],
   "overall_score": 0.32,
-  "best_case_score": 1,
+  "best_case_score": 0.32,
   "guardrail_result": {
     "passed": 5,
     "total": 5,
     "all_pass": true
   },
-  "verdict": "INCONCLUSIVE",
-  "verdict_reason": "outcome depends on 17 SERVICE_FAILURE case(s): best case 25/25",
-  "exit_code": 3,
+  "verdict": "ERROR",
+  "verdict_reason": "a case ended with configuration_error; no score is claimed",
+  "exit_code": 2,
   "dataset_errors": [],
   "checks_map": {
     "CHK-SCH-01": [
