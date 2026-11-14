@@ -1,12 +1,12 @@
 {
-  "run_id": "run-2026-11-13T07-13-00-363Z",
-  "spec_version": "1.5",
+  "run_id": "run-2026-11-13T12-02-57-258Z",
+  "spec_version": "1.6",
   "dataset_version": "1.0",
   "reference_time": "2026-11-12T10:00:00+05:30",
   "timezone": "Asia/Kolkata",
-  "model": "gemini-2.5-flash-lite",
-  "started_at": "2026-11-13T07:13:00.364Z",
-  "finished_at": "2026-11-13T07:15:59.291Z",
+  "model": "gemini-2.5-flash",
+  "started_at": "2026-11-13T12:02:57.259Z",
+  "finished_at": "2026-11-13T12:09:47.441Z",
   "threshold": {
     "case_semantic": 0.8,
     "overall": 0.8,
@@ -17,504 +17,504 @@
       "id": "EV-01",
       "category": "normal",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
-      "time_score": 0,
-      "semantic_score": 0,
-      "attempts": 1,
+      "task_score": 0.5,
+      "time_score": 0.5,
+      "semantic_score": 1,
+      "attempts": 2,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
-        "task": null,
-        "datetime": null,
+        "intent": "create",
+        "status": "ok",
+        "task": "call mom",
+        "datetime": "2026-11-13T17:00:00+05:30",
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-02",
       "category": "normal",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
-      "time_score": 0,
-      "semantic_score": 0,
-      "attempts": 1,
+      "task_score": 0.5,
+      "time_score": 0.5,
+      "semantic_score": 1,
+      "attempts": 2,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
-        "task": null,
-        "datetime": null,
+        "intent": "create",
+        "status": "ok",
+        "task": "submit the tax report",
+        "datetime": "2026-11-20T11:30:00+05:30",
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-03",
       "category": "normal",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
-      "time_score": 0,
-      "semantic_score": 0,
+      "task_score": 0.5,
+      "time_score": 0.5,
+      "semantic_score": 1,
       "attempts": 1,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
-        "task": null,
-        "datetime": null,
+        "intent": "create",
+        "status": "ok",
+        "task": "take my medicine",
+        "datetime": "2026-11-12T12:00:00+05:30",
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-04",
       "category": "normal",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
-      "time_score": 0,
-      "semantic_score": 0,
+      "task_score": 0.5,
+      "time_score": 0.5,
+      "semantic_score": 1,
       "attempts": 1,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
-        "task": null,
-        "datetime": null,
+        "intent": "create",
+        "status": "ok",
+        "task": "pay the electricity bill",
+        "datetime": "2026-11-16T09:00:00+05:30",
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-05",
       "category": "normal",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
-      "time_score": 0,
-      "semantic_score": 0,
+      "task_score": 0.5,
+      "time_score": 0.5,
+      "semantic_score": 1,
       "attempts": 1,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
-        "task": null,
-        "datetime": null,
+        "intent": "reschedule",
+        "status": "ok",
+        "task": "dentist appointment reminder",
+        "datetime": "2026-11-13T16:00:00+05:30",
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-06",
       "category": "normal",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
-      "time_score": 0,
-      "semantic_score": 0,
+      "task_score": 0.5,
+      "time_score": 0.5,
+      "semantic_score": 1,
       "attempts": 1,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
-        "task": null,
-        "datetime": null,
+        "intent": "reschedule",
+        "status": "ok",
+        "task": "team meeting reminder",
+        "datetime": "2026-11-13T10:30:00+05:30",
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-07",
       "category": "normal",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
       "task_score": 0.5,
-      "time_score": 0,
-      "semantic_score": 0.5,
+      "time_score": 0.5,
+      "semantic_score": 1,
       "attempts": 1,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
+        "intent": "snooze",
+        "status": "ok",
         "task": null,
         "datetime": null,
-        "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "snooze_minutes": 15,
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-08",
       "category": "normal",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
-      "time_score": 0,
-      "semantic_score": 0,
+      "task_score": 0.5,
+      "time_score": 0.5,
+      "semantic_score": 1,
       "attempts": 1,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
-        "task": null,
+        "intent": "snooze",
+        "status": "ok",
+        "task": "laundry reminder",
         "datetime": null,
-        "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "snooze_minutes": 30,
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-09",
       "category": "boundary",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
       "task_score": 0.5,
-      "time_score": 0,
-      "semantic_score": 0.5,
-      "attempts": 1,
+      "time_score": 0.5,
+      "semantic_score": 1,
+      "attempts": 2,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
+        "intent": "snooze",
+        "status": "ok",
         "task": null,
         "datetime": null,
-        "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "snooze_minutes": 10,
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-10",
       "category": "boundary",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
-      "time_score": 0,
-      "semantic_score": 0,
+      "task_score": 0.5,
+      "time_score": 0.5,
+      "semantic_score": 1,
       "attempts": 1,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
-        "task": null,
-        "datetime": null,
+        "intent": "create",
+        "status": "ok",
+        "task": "lock the main door",
+        "datetime": "2026-11-12T23:59:00+05:30",
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-11",
       "category": "boundary",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
       "task_score": 0.5,
-      "time_score": 0,
-      "semantic_score": 0.5,
+      "time_score": 0.5,
+      "semantic_score": 1,
       "attempts": 1,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
-        "intent": "clarify",
-        "status": "error",
+        "intent": "snooze",
+        "status": "ok",
         "task": null,
         "datetime": null,
-        "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "snooze_minutes": 1440,
+        "clarification_question": null,
+        "reason": null
       }
     },
     {
       "id": "EV-12",
       "category": "boundary",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
       "task_score": 0.5,
       "time_score": 0.5,
       "semantic_score": 1,
-      "attempts": 1,
+      "attempts": 2,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
-        "status": "error",
+        "status": "needs_clarification",
         "task": null,
         "datetime": null,
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": "Please provide a snooze duration between 1 and 1440 minutes.",
+        "reason": "out_of_range"
       }
     },
     {
       "id": "EV-13",
       "category": "boundary",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
+      "task_score": 0.5,
       "time_score": 0.5,
-      "semantic_score": 0.5,
+      "semantic_score": 1,
       "attempts": 1,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
-        "status": "error",
-        "task": null,
+        "status": "needs_clarification",
+        "task": "send the invoice",
         "datetime": null,
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": "That time has already passed. When would you like to be reminded?",
+        "reason": "past_time"
       }
     },
     {
       "id": "EV-14",
       "category": "missing_info",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
+      "task_score": 0.5,
       "time_score": 0.5,
-      "semantic_score": 0.5,
+      "semantic_score": 1,
       "attempts": 1,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
-        "status": "error",
-        "task": null,
+        "status": "needs_clarification",
+        "task": "buy groceries",
         "datetime": null,
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": "When would you like to be reminded?",
+        "reason": "missing_time"
       }
     },
     {
       "id": "EV-15",
       "category": "missing_info",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
       "task_score": 0.5,
       "time_score": 0.5,
       "semantic_score": 1,
-      "attempts": 1,
+      "attempts": 2,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
-        "status": "error",
+        "status": "needs_clarification",
         "task": null,
         "datetime": null,
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": "What would you like to be reminded about?",
+        "reason": "missing_task"
       }
     },
     {
       "id": "EV-16",
       "category": "ambiguous",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "PASS",
+      "exit_code": 0,
       "timed_out": false,
       "layer1": {
         "pass": true,
         "failed": []
       },
       "layer2": {
-        "pass": null,
+        "pass": true,
         "failed": []
       },
-      "task_score": 0,
+      "task_score": 0.5,
       "time_score": 0.5,
-      "semantic_score": 0.5,
-      "attempts": 1,
+      "semantic_score": 1,
+      "attempts": 2,
       "failure_kind": null,
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
-        "status": "error",
-        "task": null,
+        "status": "needs_clarification",
+        "task": "water the plants",
         "datetime": null,
         "snooze_minutes": null,
-        "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "clarification_question": "What time tomorrow morning?",
+        "reason": "ambiguous_time"
       }
     },
     {
       "id": "EV-17",
       "category": "ambiguous",
       "guardrail": false,
-      "classification": "CONFIG_ERROR",
-      "exit_code": 2,
+      "classification": "SERVICE_FAILURE",
+      "exit_code": 3,
       "timed_out": false,
       "layer1": {
         "pass": true,
@@ -527,8 +527,8 @@
       "task_score": 0.5,
       "time_score": 0.5,
       "semantic_score": 1,
-      "attempts": 1,
-      "failure_kind": null,
+      "attempts": 3,
+      "failure_kind": "429",
       "output": {
         "schema_version": "1.0",
         "intent": "clarify",
@@ -537,7 +537,7 @@
         "datetime": null,
         "snooze_minutes": null,
         "clarification_question": "Something went wrong while processing your reminder. Please try again.",
-        "reason": "configuration_error"
+        "reason": "model_service_failure"
       }
     },
     {
@@ -790,22 +790,27 @@
     }
   ],
   "totals": {
-    "PASS": 8,
+    "PASS": 24,
     "FAIL": 0,
-    "SERVICE_FAILURE": 0,
-    "CONFIG_ERROR": 17
+    "SERVICE_FAILURE": 1,
+    "CONFIG_ERROR": 0
   },
-  "service_failure_ids": [],
-  "overall_score": 0.32,
-  "best_case_score": 0.32,
+  "service_failure_ids": [
+    {
+      "id": "EV-17",
+      "failure_kind": "429"
+    }
+  ],
+  "overall_score": 0.96,
+  "best_case_score": 1,
   "guardrail_result": {
     "passed": 5,
     "total": 5,
     "all_pass": true
   },
-  "verdict": "ERROR",
-  "verdict_reason": "a case ended with configuration_error; no score is claimed",
-  "exit_code": 2,
+  "verdict": "PASS",
+  "verdict_reason": "overall score 24/25 ≥ 0.8 and every guardrail case PASS",
+  "exit_code": 0,
   "dataset_errors": [],
   "checks_map": {
     "CHK-SCH-01": [
@@ -943,7 +948,7 @@
       "rule": "no failed CHK-INV check; no guardrail case FAIL"
     },
     "evaluation": {
-      "result": "NOT_EVALUATED",
+      "result": "PASS",
       "rule": "verdict PASS → PASS; FAIL → FAIL; INCONCLUSIVE/ERROR → NOT_EVALUATED"
     },
     "traceability": {
