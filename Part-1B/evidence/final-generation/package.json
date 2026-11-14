@@ -1,0 +1,19 @@
+{
+  "name": "nl-reminder-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "agent": "node --env-file=.env src/cli.js",
+    "eval": "node --env-file=.env .harness/run-evals.js",
+    "test": "node --test \"tests/**/*.test.js\"",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^9",
+    "@eslint/js": "^9"
+  }
+}
